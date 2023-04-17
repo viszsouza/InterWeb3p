@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/preencherOrcamento.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sua-integridade-aqui" crossorigin="anonymous"/>
+    <script src="../javascript/preencherOrcamento.js" defer></script>
+    <title>Preencher Orçamento</title>
+</head>
+<body>
+    <div class="pagina">
+        <header class="tabs-home">
+            <div class="box-imagem">
+                <img class="logo-home" src="../images/logo.png" alt="">
+                <div class="fundo-logo"></div>
+            </div>
+            <ul>
+                <a href="home.html">
+                    <li><i class="fas fa-home"></i> Home</li>
+                </a>
+                <a href="cadastro-funcionario.html">
+                    <li><i class="fas fa-user-plus"></i> Cadastrar funcionário</li>
+                </a>
+                <a href="cadastro-cliente.html">
+                    <li><i class="fas fa-user-plus"></i> Cadastrar cliente</li>
+                </a>
+                <a href="#">
+                    <li><i class="fas fa-file-invoice"></i> Tarifas</li>
+                </a>
+                <div class="atual"></div>
+                <a href="#">
+                    <li><i class="fas fa-list-alt"></i> Preencher orçamentos</li>
+                </a>
+                <a href="#">
+                    <li><i class="fas fa-check-circle"></i> Lista de orçamentos</li>
+                </a>
+            </ul>
+        
+            <div class="user">
+                <div class="user-image">
+                </div>
+                <p>Usuário: Dono</p>
+            </div>
+        </header>
+        <section>
+            <h1>Orçamento</h1>
+            <form action="#">
+                <div class="informacoes">
+                    <div class="campo">
+                        <label for="cliente">Cliente</label>
+                        <input type="text" id="cliente" name="cliente">
+                    </div>
+                    <div class="campo">
+                        <label for="cnpj">CNPJ</label>
+                        <input type="text" id="cnpj" name="cnpj">
+                    </div>
+                    <div class="campo">
+                        <label for="tipo-orcamento">Tipo de Orçamento</label>
+                        <input type="text" id="tipo-orcamento" name="tipo-orcamento">
+                    </div>
+                </div>
+                <div class="itens">
+                    <div class="linha" id="linha1">
+                        <div class="campo item">
+                            <label for="item">Item</label>
+                            <input type="text" id="item" name="item1">
+                        </div>
+                        <div class="campo quant">
+                            <label for="quant">Quant</label>
+                            <input type="text" id="quant" name="quant1">
+                        </div>
+                        <div class="campo material-servico">
+                            <label for="material-servico">Material - Serviço</label>
+                            <input type="text" id="material-servico" name="material-servico1">
+                        </div>
+                        <div class="campo preco-final">
+                            <label for="ptrco-final">Preço final</label>
+                            <input type="text" id="preco-final" name="preco-final1">
+                        </div>
+                    </div>
+                    <div class="linha" id="linha2">
+                        <div class="campo item">
+                            <input type="text" name="item2">
+                        </div>
+                        <div class="campo quant">
+                            <input type="text" name="quant2">
+                        </div>
+                        <div class="campo material-servico">
+                            <input type="text" name="material-servico2">
+                        </div>
+                        <div class="campo preco-final">
+                            <input type="text" name="preco-final2">
+                        </div>
+                    </div>
+                    <div class="linha" id="linha3">
+                        <div class="campo item">
+                            <input type="text" name="item3">
+                        </div>
+                        <div class="campo quant">
+                            <input type="text" name="quant3">
+                        </div>
+                        <div class="campo material-servico">
+                            <input type="text" name="material-servico3">
+                        </div>
+                        <div class="campo preco-final">
+                            <input type="text" name="preco-final3">
+                        </div>
+                    </div>
+                    <div class="linha" id="linha4">
+                        <div class="campo item">
+                            <input type="text" name="item4">
+                        </div>
+                        <div class="campo quant">
+                            <input type="text" name="quant4">
+                        </div>
+                        <div class="campo material-servico">
+                            <input type="text" name="material-servico4">
+                        </div>
+                        <div class="campo preco-final">
+                            <input type="text" name="preco-final4">
+                        </div>
+                    </div>
+                    <div class="adicionar-campos">
+                        <button type="button" id="adicionar-campos">+</button>
+                        <label for="adicionar-campos"> Adicionar mais campos</label>
+                    </div>
+                </div>
+                <div class="tecnicos">
+                    <h2>Tecnicos Responsáveis</h2>
+                    <input type="text" name="tecnico1">
+                    <input type="text" name="tecnico2">
+                    <div class="adicionar-tecnicos">
+                        <button type="button" id="adicionar-tecnicos">+</button>
+                        <label for="adicionar-tecnicos">Adicionar mais Técnicos</label>
+                    </div>
+                </div>
+                <div class="informacoes-endereco">
+                    <h2>Informações de Endereço</h2>
+                    <div class="campo endereco">
+                        <label for="endereco">Endereço</label>
+                        <input type="text" id="endereco" name="endereco">
+                    </div>
+                    <div class="campo bairro">
+                        <label for="bairro">Bairro</label>
+                        <input type="text" id="bairro" name="endereco">
+                    </div>
+                    <div class="campo numero">
+                        <label for="numero">N°</label>
+                        <input type="text" id="numero" name="numero">
+                    </div>
+                </div>
+                <div class="observacao">
+                    <h2>Observação</h2>
+                    <textarea name="observacao" id="observacao"></textarea>
+                </div>
+                <div class="checkbox">
+                    <input type="checkbox" id="confirmar" name="confirmar" required>
+                    <label for="confirmar">Confirmar Orçamento?</label>
+                </div>
+                <button>Enviar Formulário</button>
+            </form>
+        </section>
+    </div>
+</body>
+</html>
