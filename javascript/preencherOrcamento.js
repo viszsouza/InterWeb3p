@@ -1,27 +1,6 @@
-/*  <div class="linha">
-        <div class="campo item">
-            <label for="item">Item</label>
-            <input type="text" id="item" name="item1">
-        </div>
-        <div class="campo quant">
-            <label for="quant">Quant</label>
-            <input type="text" id="quant" name="quant1">
-        </div>
-        <div class="campo material-servico">
-            <label for="material-servico">Material - Serviço</label>
-            <input type="text" id="material-servico" name="material-servico1">
-        </div>
-        <div class="campo preco-final">
-            <label for="ptrco-final">Preço final</label>
-            <input type="text" id="preco-final" name="preco-final1">
-        </div>
-    </div> 
-*/
-
-function adicionarItens(id) {
+function adicionarCampoDeItens(id) {
     const linha = document.createElement("div");
-    linha.classList.add("linha");
-    linha.id = `linha${id}`;
+    linha.classList.add("linha-itens");
 
     const campoItem = document.createElement("div");
     campoItem.classList.add("campo");
@@ -50,6 +29,15 @@ function adicionarItens(id) {
     campoMaterialServico.appendChild(inputMaterialServico);
     linha.appendChild(campoMaterialServico);
 
+    const campoPrecoUnitario = document.createElement("div");
+    campoPrecoUnitario.classList.add("campo");
+    campoPrecoUnitario.classList.add("preco-unitario");
+    const inputPrecoUnitario = document.createElement("input");
+    inputPrecoUnitario.name = `preco-unitario${id}`;
+    inputPrecoUnitario.type = "text";
+    campoPrecoUnitario.appendChild(inputPrecoUnitario);
+    linha.appendChild(campoPrecoUnitario);
+
     const campoPrecoFinal = document.createElement("div");
     campoPrecoFinal.classList.add("campo");
     campoPrecoFinal.classList.add("preco-final");
@@ -60,21 +48,114 @@ function adicionarItens(id) {
     linha.appendChild(campoPrecoFinal);
 
     const itens = document.querySelector(".itens");
-    const botao = document.querySelector(".adicionar-campos");
+    const botao = document.querySelector(".itens .adicionar-campos");
     itens.insertBefore(linha, botao);
 }
 
-function adicionarCampoDeTecnico(id) {
-    const campo = document.createElement("input");
-    campo.name = `tecnico${id}`;
-    document.querySelector(".tecnicos").insertBefore(".adicionar-tecnicos");
+function adicionarCampoDeMO(id) {
+    const linha = document.createElement("div");
+    linha.classList.add("linha-mo");
+
+    const campoProfissional = document.createElement("div");
+    campoProfissional.classList.add("campo");
+    campoProfissional.classList.add("mo");
+    const inputProfissional = document.createElement("input");
+    inputProfissional.type = "text";
+    inputProfissional.name = `profissional${id}`;
+    campoProfissional.appendChild(inputProfissional);
+    linha.appendChild(campoProfissional);
+
+    const campoPessoas = document.createElement("div");
+    campoPessoas.classList.add("campo");
+    campoPessoas.classList.add("mo");
+    const inputPessoas = document.createElement("input");
+    inputPessoas.type = "text";
+    inputPessoas.name = `pessoas${id}`;
+    campoPessoas.appendChild(inputPessoas);
+    linha.appendChild(campoPessoas);
+
+    const campoDias = document.createElement("div");
+    campoDias.classList.add("campo");
+    campoDias.classList.add("mo");
+    const inputDias = document.createElement("input");
+    inputDias.type = "text";
+    inputDias.name = `dias${id}`;
+    campoDias.appendChild(inputDias);
+    linha.appendChild(campoDias);
+
+    const campoPrecoDia = document.createElement("div");
+    campoPrecoDia.classList.add("campo");
+    campoPrecoDia.classList.add("mo");
+    const inputPrecoDia = document.createElement("input");
+    inputPrecoDia.type = "text";
+    inputPrecoDia.name = `preco-dia${id}`;
+    campoPrecoDia.appendChild(inputPrecoDia);
+    linha.appendChild(campoPrecoDia);
+
+    const campoHoras = document.createElement("div");
+    campoHoras.classList.add("campo");
+    campoHoras.classList.add("mo");
+    const inputHoras = document.createElement("input");
+    inputHoras.type = "text";
+    inputHoras.name = `horas${id}`;
+    campoHoras.appendChild(inputHoras);
+    linha.appendChild(campoHoras);
+
+    const campoPrecoHoras = document.createElement("div");
+    campoPrecoHoras.classList.add("campo");
+    campoPrecoHoras.classList.add("mo");
+    const inputPrecoHoras = document.createElement("input");
+    inputPrecoHoras.type = "text";
+    inputPrecoHoras.name = `preco-horas${id}`;
+    campoPrecoHoras.appendChild(inputPrecoHoras);
+    linha.appendChild(campoPrecoHoras);
+
+    document.querySelector(".mao-de-obra").insertBefore(linha, document.querySelector(".mao-de-obra .adicionar-campos"));
 }
 
-const adicionarCampo = document.querySelector("#adicionar-campos");
-adicionarCampo.addEventListener("click", () => {
-    adicionarItens(Array.from(document.querySelectorAll(".linha")).length);
+function adicionarCampoDeProf(id) {
+    const linha = document.createElement("div");
+    linha.classList.add("linha-prof");
+
+    const nomeP = document.createElement("p");
+    nomeP.textContent = "Nome:";
+    linha.appendChild(nomeP);
+
+    const nomeInput = document.createElement("input");
+    nomeInput.type = "text";
+    nomeInput.name = `nome-profissional${id}`;
+    linha.appendChild(nomeInput);
+
+    const cftP = document.createElement("p");
+    cftP.textContent = "CFT/CREA:";
+    linha.appendChild(cftP);
+
+    const cftInput = document.createElement("input");
+    cftInput.type = "text";
+    cftInput.name = `cft-crea${id}`;
+    linha.appendChild(cftInput);
+
+    document.querySelector(".profissionais").insertBefore(linha, document.querySelector(".profissionais .adicionar-campos"));
+}
+
+// Adicionar Campos em ítens
+const botaoAdicionarCampoItens = document.querySelector("#adicionar-campos-itens");
+botaoAdicionarCampoItens.addEventListener("click", () => {
+    adicionarCampoDeItens(document.querySelectorAll(".linha-itens").length + 1);
 });
-const adicionarTecnico = document.querySelector("#adicionar-tecnicos");
-adicionarTecnico.addEventListener("click", () => {
-    adicionarCampoDeTecnico(Array.from(document.querySelectorAll(".tecnicos input")).length);
+
+//Adicionar campos em mão de obra
+const botaoAdicionarCampoMO = document.querySelector("#adicionar-campos-mo");
+botaoAdicionarCampoMO.addEventListener("click", () => {
+    adicionarCampoDeMO(document.querySelectorAll(".linha-mo").length + 1);
 });
+
+const botaoAdicionarCampoProf = document.querySelector("#adicionar-campos-prof");
+botaoAdicionarCampoProf.addEventListener("click", () => {
+    adicionarCampoDeProf(document.querySelectorAll(".linha-prof").length + 1);
+});
+
+//Data atual
+const date = new Date();
+const month = +date.getMonth() + 1 > 9 ? +date.geMonth() + 1 : "0" + (date.getMonth() + 1);
+document.querySelector(".data-atual").value = `${date.getFullYear()}-${month}-${date.getDate()}`;

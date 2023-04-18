@@ -12,57 +12,105 @@
 <body>
     <div class="pagina">
         <header class="tabs-home">
-            <div class="box-imagem">
-                <img class="logo-home" src="../images/logo.png" alt="">
-                <div class="fundo-logo"></div>
-            </div>
-            <ul>
-                <a href="home.html">
-                    <li><i class="fas fa-home"></i> Home</li>
-                </a>
-                <a href="cadastro-funcionario.html">
-                    <li><i class="fas fa-user-plus"></i> Cadastrar funcionário</li>
-                </a>
-                <a href="cadastro-cliente.html">
-                    <li><i class="fas fa-user-plus"></i> Cadastrar cliente</li>
-                </a>
-                <a href="#">
-                    <li><i class="fas fa-file-invoice"></i> Tarifas</li>
-                </a>
-                <div class="atual"></div>
-                <a href="#">
-                    <li><i class="fas fa-list-alt"></i> Preencher orçamentos</li>
-                </a>
-                <a href="#">
-                    <li><i class="fas fa-check-circle"></i> Lista de orçamentos</li>
-                </a>
-            </ul>
-        
-            <div class="user">
-                <div class="user-image">
+            <div class="menu">
+                <div class="box-imagem">
+                    <img class="logo-home" src="../images/logo.png" alt="">
+                    <div class="fundo-logo"></div>
                 </div>
-                <p>Usuário: Dono</p>
+                <ul>
+                    <a href="home.html">
+                        <li><i class="fas fa-home"></i> Home</li>
+                    </a>
+                    <a href="cadastro-funcionario.html">
+                        <li><i class="fas fa-user-plus"></i> Cadastrar funcionário</li>
+                    </a>
+                    <a href="cadastro-cliente.html">
+                        <li><i class="fas fa-user-plus"></i> Cadastrar cliente</li>
+                    </a>
+                    <a href="#">
+                        <li><i class="fas fa-file-invoice"></i> Tarifas</li>
+                    </a>
+                    <div class="atual"></div>
+                    <a href="#">
+                        <li><i class="fas fa-list-alt"></i> Preencher orçamentos</li>
+                    </a>
+                    <a href="#">
+                        <li><i class="fas fa-check-circle"></i> Lista de orçamentos</li>
+                    </a>
+                </ul>
+                <div class="user">
+                    <div class="user-image">
+                    </div>
+                    <p>Usuário: Dono</p>
+                </div>
             </div>
         </header>
         <section>
             <h1>Orçamento</h1>
             <form action="#">
+                <div class="orcamento-meta">
+                    <div class="campo">
+                        <label for="data-atual">Data:</label>
+                        <input type="date" name="data" placeholder="dd/mm/yyyy" id="data-atual" class="data-atual" value="">
+                    </div>
+                    <div class="ids">
+                        <div class="campo">
+                            <label for="orcamento-numero">Orçamento Nᵒ</label>
+                            <input type="text" id="orcamento-numero" name="orcamento-numero">
+                        </div>
+                        <div class="campo">
+                            <label for="os-numero">OS Nᵒ</label>
+                            <input type="text" id="os-numero" name="os-numero">
+                        </div>
+                    </div>
+                </div>
                 <div class="informacoes">
+                    <h2>Informações do Cliente</h2>
                     <div class="campo">
                         <label for="cliente">Cliente</label>
                         <input type="text" id="cliente" name="cliente">
                     </div>
                     <div class="campo">
-                        <label for="cnpj">CNPJ</label>
-                        <input type="text" id="cnpj" name="cnpj">
+                        <label for="setor">Setor</label>
+                        <input type="text" id="setor" name="setor">
                     </div>
                     <div class="campo">
-                        <label for="tipo-orcamento">Tipo de Orçamento</label>
-                        <input type="text" id="tipo-orcamento" name="tipo-orcamento">
+                        <label for="endereco">Endereço</label>
+                        <input type="text" id="endereco" name="endereco">
+                    </div>
+                    <div class="campo">
+                        <label for="cidade">Cidade</label>
+                        <input type="text" id="cidade" name="cidade">
+                    </div>
+                    <div class="contato-cliente">
+                        <div class="campo">
+                            <label for="email">Email</label>
+                            <input type="text" id="email" name="email">
+                        </div>
+                        <div class="campo">
+                            <label for="whatsapp">Whatsapp</label>
+                            <input type="text" id="whatsapp" name="whatsapp">
+                        </div>
+                    </div>
+                </div>
+                <div class="servico">
+                    <h2>Serviço</h2>
+                    <div class="campo">
+                        <label for="tipo-servico">Tipo de serviço</label>
+                        <input type="text" id="tipo-servico" name="tipo-servico">
+                    </div>
+                    <div class="campo">
+                        <label for="descricao-servico">Descrição detalhada do serviço</label>
+                        <textarea name="descricao-servico" id="descricao-servico"></textarea>
+                    </div>
+                    <div class="campo">
+                        <label for="limitacao-serco">Limitações do serviço</label>
+                        <textarea name="descricao-servico" id="descricao-servico"></textarea>
                     </div>
                 </div>
                 <div class="itens">
-                    <div class="linha" id="linha1">
+                    <h2>Itens</h2>
+                    <div class="linha-itens" id="linha1">
                         <div class="campo item">
                             <label for="item">Item</label>
                             <input type="text" id="item" name="item1">
@@ -75,12 +123,16 @@
                             <label for="material-servico">Material - Serviço</label>
                             <input type="text" id="material-servico" name="material-servico1">
                         </div>
+                        <div class="campo preco-unitario">
+                            <label for="preco-unitario">Unidade</label>
+                            <input type="text" id="preco-unitario" name="preco-unitario1">
+                        </div>
                         <div class="campo preco-final">
                             <label for="ptrco-final">Preço final</label>
                             <input type="text" id="preco-final" name="preco-final1">
                         </div>
                     </div>
-                    <div class="linha" id="linha2">
+                    <div class="linha-itens" id="linha2">
                         <div class="campo item">
                             <input type="text" name="item2">
                         </div>
@@ -90,11 +142,14 @@
                         <div class="campo material-servico">
                             <input type="text" name="material-servico2">
                         </div>
+                        <div class="campo preco-unitario">
+                            <input type="text" name="preco-unitario2">
+                        </div>
                         <div class="campo preco-final">
                             <input type="text" name="preco-final2">
                         </div>
                     </div>
-                    <div class="linha" id="linha3">
+                    <div class="linha-itens" id="linha3">
                         <div class="campo item">
                             <input type="text" name="item3">
                         </div>
@@ -104,11 +159,14 @@
                         <div class="campo material-servico">
                             <input type="text" name="material-servico3">
                         </div>
+                        <div class="campo preco-unitario">
+                            <input type="text" name="preco-unitario3">
+                        </div>
                         <div class="campo preco-final">
                             <input type="text" name="preco-final3">
                         </div>
                     </div>
-                    <div class="linha" id="linha4">
+                    <div class="linha-itens" id="linha4">
                         <div class="campo item">
                             <input type="text" name="item4">
                         </div>
@@ -118,48 +176,175 @@
                         <div class="campo material-servico">
                             <input type="text" name="material-servico4">
                         </div>
+                        <div class="campo preco-unitario">
+                            <input type="text" name="preco-unitario4">
+                        </div>
                         <div class="campo preco-final">
                             <input type="text" name="preco-final4">
                         </div>
                     </div>
                     <div class="adicionar-campos">
-                        <button type="button" id="adicionar-campos">+</button>
-                        <label for="adicionar-campos"> Adicionar mais campos</label>
+                        <button type="button" id="adicionar-campos-itens">+</button>
+                        <label for="adicionar-campos-itens"> Adicionar mais campos</label>
+                    </div>
+                    <div class="valor-total-itens">
+                        <label for="valor-total-itens">Valor total dos Itens</label>
+                        <input type="text" id="valor-total-itens" name="valor-total-itens" value="R$500,00" readonly>
                     </div>
                 </div>
-                <div class="tecnicos">
-                    <h2>Tecnicos Responsáveis</h2>
-                    <input type="text" name="tecnico1">
-                    <input type="text" name="tecnico2">
-                    <div class="adicionar-tecnicos">
-                        <button type="button" id="adicionar-tecnicos">+</button>
-                        <label for="adicionar-tecnicos">Adicionar mais Técnicos</label>
+                <div class="mao-de-obra">
+                    <h2>Mão de obra</h2>                    
+                    <div class="linha-mo">
+                        <div class="campo mo">
+                            <label for="profissional">Profissional</label>
+                            <input type="text" id="profissional" name="profissional1">
+                        </div>
+                        <div class="campo mo">
+                            <label for="pessoas">Pessoas</label>
+                            <input type="text" id="pessoas" name="pessoas1">
+                        </div>
+                        <div class="campo mo">
+                            <label for="dias">Dias</label>
+                            <input type="text" id="dias" name="dias1">
+                        </div>
+                        <div class="campo mo">
+                            <label for="preco-dia">Dias R$</label>
+                            <input type="text" id="preco-dia" name="preco-dia1">
+                        </div>
+                        <div class="campo mo">
+                            <label for="horas">Horas</label>
+                            <input type="text" id="horas" name="horas1">
+                        </div>
+                        <div class="campo mo">
+                            <label for="preco-horas">Horas R$</label>
+                            <input type="text" id="preco-horas" name="preco-horas1">
+                        </div> 
+                    </div>
+                    <div class="linha-mo">
+                        <div class="campo mo">
+                            <input type="text" name="profissional2">
+                        </div>
+                        <div class="campo mo">
+                            <input type="text" name="pessoas2">
+                        </div>
+                        <div class="campo mo">
+                            <input type="text" name="dias2">
+                        </div>
+                        <div class="campo mo">
+                            <input type="text" name="preco-dia2">
+                        </div>
+                        <div class="campo mo">
+                            <input type="text" name="horas2">
+                        </div>
+                        <div class="campo mo">
+                            <input type="text" name="preco-horas2">
+                        </div>
+                    </div>
+                    <div class="adicionar-campos">
+                        <button type="button" id="adicionar-campos-mo">+</button>
+                        <label for="adicionar-campos-mo"> Adicionar mais campos</label>
                     </div>
                 </div>
-                <div class="informacoes-endereco">
-                    <h2>Informações de Endereço</h2>
-                    <div class="campo endereco">
-                        <label for="endereco">Endereço</label>
-                        <input type="text" id="endereco" name="endereco">
+                <div class="taxas">
+                    <h2>Taxas</h2>
+                    <div class="linha-taxa">
+                        <p>Mão de Obra</p>
+                        <p></p>
+                        <input type="text" id="mo-total" name="mo-total" value="R$7500,00" readonly>
                     </div>
-                    <div class="campo bairro">
-                        <label for="bairro">Bairro</label>
-                        <input type="text" id="bairro" name="endereco">
+                    <div class="linha-taxa">
+                        <p>Deslocamento</p>
+                        <p></p>
+                        <input type="text" id="deslocamento" name="deslocamento" value="R$375,00" readonly>
                     </div>
-                    <div class="campo numero">
-                        <label for="numero">N°</label>
-                        <input type="text" id="numero" name="numero">
+                    <div class="linha-taxa">
+                        <p>Seguro Garantia</p>
+                        <p id="taxa-seguro-garantia">3%</p>
+                        <input type="text" id="seguro-garantia" name="seguro-garantia" value="R$448,84" readonly>
+                    </div>
+                    <div class="linha-taxa">
+                        <p>Seguro Respon. Civil</p>
+                        <p id="taxe-seguro-civil">5%</p>
+                        <input type="text" id="seguro-civil" name="seguro-civil" value="R$748,07" readonly>
+                    </div>
+                    <div class="linha-taxa">
+                        <p>TX Administrativa</p>
+                        <p id="taxa-admin">15%</p>
+                        <input type="text" id="admin-valor" name="admin-valor" value="R$2.423,75" readonly>
+                    </div>
+                    <div class="linha-taxa">
+                        <p>Lucro</p>
+                        <p id="taxa-lucro">20%</p>
+                        <input type="text" id="lucro-valor" name="taxa-admin-valor" value="R$3.716,42"readonly>
+                    </div>
+                    <div class="linha-taxa">
+                        <p>Impostos</p>
+                        <p id="taxa-impostos">25%</p>
+                        <input type="text" id="impostos-valor" name="impostos-valor" value="R$5.574,63" readonly>
+                    </div>
+                    <div class="linha-taxa desconto">
+                        <p>Desconto</p>
+                        <input type="text" id="taxa-desconto" name="taxa-desconto">
+                        <input type="text" id="desconto-valor" name="desconto-valor" readonly>
                     </div>
                 </div>
-                <div class="observacao">
-                    <h2>Observação</h2>
-                    <textarea name="observacao" id="observacao"></textarea>
+                <div class="profissionais">
+                    <h2>Nome dos Profissionais</h2>
+                    <div class="linha-prof">
+                        <p>Nome:</p>
+                        <input type="text" name="nome-profissional1">
+                        <p>CFT/CREA:</p>
+                        <input type="text" name="cft-crea1">
+                    </div>
+                    <div class="linha-prof">
+                        <p>Nome:</p>
+                        <input type="text" name="nome-profissional2">
+                        <p>CFT/CREA:</p>
+                        <input type="text" name="cft-crea2">
+                    </div>
+                    <div class="adicionar-campos">
+                        <button type="button" id="adicionar-campos-prof">+</button>
+                        <label for="adicionar-campos-prof"> Adicionar mais campos</label>
+                    </div>
                 </div>
-                <div class="checkbox">
-                    <input type="checkbox" id="confirmar" name="confirmar" required>
-                    <label for="confirmar">Confirmar Orçamento?</label>
+                <div class="pagamento">
+                    <h2>Formas de Pagamento</h2>
+                    <div class="banco">
+                        <div class="campo2">
+                            <label for="banco">Banco:</label>
+                            <input type="text" id="banco" name="banco">
+                        </div>
+                        <div class="campo2">
+                            <label for="agencia">Agência:</label>
+                            <input type="text" id="agencia" name="agencia">
+                        </div>
+                        <div class="campo2">
+                            <label for="conta-corrente">Conta Corrente</label>
+                            <input type="text" id="conta-corrente" name="conta-corrente">
+                        </div>
+                    </div>
+                    <div class="campo2">
+                        <label for="pix">PIX:</label>
+                        <input type="text" id="pix" name="pix">
+                    </div>
+                    <div class="campo2">
+                        <label for="email-local">Email:</label>
+                        <input type="email" id="email-local" name="email-local" value="placeservicos@gmail.com">
+                    </div>
                 </div>
-                <button>Enviar Formulário</button>
+                <div class="valor-total">
+                    <div class="campo2">
+                        <label for="distancia">Distância</label>
+                        <input type="number" id="distancia" name="distancia">
+                    </div>
+                    <div class="campo2">
+                        <label for="distancia-vlor">Valor / KM</label>
+                        <input type="text" id="distancia-valor" name="distancia-valor">
+                    </div>
+                    <h2>Valor total</h2>
+                    <p>R$27.873,13</p>
+                </div>
+                <button id="submit">Baixar Formulário</button>
             </form>
         </section>
     </div>
