@@ -104,83 +104,27 @@
                         <textarea name="descricao-servico" id="descricao-servico"></textarea>
                     </div>
                     <div class="campo">
-                        <label for="limitacao-serco">Limitações do serviço</label>
-                        <textarea name="descricao-servico" id="descricao-servico"></textarea>
+                        <label for="limitacao-servico">Limitações do serviço</label>
+                        <textarea name="limitacao-servico" id="limitacao-servico"></textarea>
                     </div>
                 </div>
                 <div class="itens">
                     <h2>Itens</h2>
                     <div class="linha-itens" id="linha1">
                         <div class="campo item">
-                            <label for="item">Item</label>
-                            <input type="text" id="item" name="item1">
+                            <label>Item</label>
                         </div>
                         <div class="campo quant">
-                            <label for="quant">Quant</label>
-                            <input type="text" id="quant" name="quant1">
+                            <label>Quant</label>
                         </div>
                         <div class="campo material-servico">
-                            <label for="material-servico">Material - Serviço</label>
-                            <input type="text" id="material-servico" name="material-servico1">
+                            <label>Material - Serviço</label>
                         </div>
                         <div class="campo preco-unitario">
-                            <label for="preco-unitario">Unidade</label>
-                            <input type="text" id="preco-unitario" name="preco-unitario1">
+                            <label>Unidade</label>
                         </div>
-                        <div class="campo preco-final">
-                            <label for="ptrco-final">Preço final</label>
-                            <input type="text" id="preco-final" name="preco-final1">
-                        </div>
-                    </div>
-                    <div class="linha-itens" id="linha2">
-                        <div class="campo item">
-                            <input type="text" name="item2">
-                        </div>
-                        <div class="campo quant">
-                            <input type="text" name="quant2">
-                        </div>
-                        <div class="campo material-servico">
-                            <input type="text" name="material-servico2">
-                        </div>
-                        <div class="campo preco-unitario">
-                            <input type="text" name="preco-unitario2">
-                        </div>
-                        <div class="campo preco-final">
-                            <input type="text" name="preco-final2">
-                        </div>
-                    </div>
-                    <div class="linha-itens" id="linha3">
-                        <div class="campo item">
-                            <input type="text" name="item3">
-                        </div>
-                        <div class="campo quant">
-                            <input type="text" name="quant3">
-                        </div>
-                        <div class="campo material-servico">
-                            <input type="text" name="material-servico3">
-                        </div>
-                        <div class="campo preco-unitario">
-                            <input type="text" name="preco-unitario3">
-                        </div>
-                        <div class="campo preco-final">
-                            <input type="text" name="preco-final3">
-                        </div>
-                    </div>
-                    <div class="linha-itens" id="linha4">
-                        <div class="campo item">
-                            <input type="text" name="item4">
-                        </div>
-                        <div class="campo quant">
-                            <input type="text" name="quant4">
-                        </div>
-                        <div class="campo material-servico">
-                            <input type="text" name="material-servico4">
-                        </div>
-                        <div class="campo preco-unitario">
-                            <input type="text" name="preco-unitario4">
-                        </div>
-                        <div class="campo preco-final">
-                            <input type="text" name="preco-final4">
+                        <div class="campo">
+                            <label>Preço final</label>
                         </div>
                     </div>
                     <div class="adicionar-campos">
@@ -189,7 +133,7 @@
                     </div>
                     <div class="valor-total-itens">
                         <label for="valor-total-itens">Valor total dos Itens</label>
-                        <input type="text" id="valor-total-itens" name="valor-total-itens" value="R$500,00" readonly>
+                        <input type="text" id="valor-total-itens" name="valor-total-itens" readonly>
                     </div>
                 </div>
                 <div class="mao-de-obra">
@@ -197,48 +141,22 @@
                     <div class="linha-mo">
                         <div class="campo mo">
                             <label for="profissional">Profissional</label>
-                            <input type="text" id="profissional" name="profissional1">
                         </div>
                         <div class="campo mo">
                             <label for="pessoas">Pessoas</label>
-                            <input type="text" id="pessoas" name="pessoas1">
                         </div>
                         <div class="campo mo">
                             <label for="dias">Dias</label>
-                            <input type="text" id="dias" name="dias1">
                         </div>
                         <div class="campo mo">
                             <label for="preco-dia">Dias R$</label>
-                            <input type="text" id="preco-dia" name="preco-dia1">
                         </div>
                         <div class="campo mo">
                             <label for="horas">Horas</label>
-                            <input type="text" id="horas" name="horas1">
                         </div>
                         <div class="campo mo">
                             <label for="preco-horas">Horas R$</label>
-                            <input type="text" id="preco-horas" name="preco-horas1">
                         </div> 
-                    </div>
-                    <div class="linha-mo">
-                        <div class="campo mo">
-                            <input type="text" name="profissional2">
-                        </div>
-                        <div class="campo mo">
-                            <input type="text" name="pessoas2">
-                        </div>
-                        <div class="campo mo">
-                            <input type="text" name="dias2">
-                        </div>
-                        <div class="campo mo">
-                            <input type="text" name="preco-dia2">
-                        </div>
-                        <div class="campo mo">
-                            <input type="text" name="horas2">
-                        </div>
-                        <div class="campo mo">
-                            <input type="text" name="preco-horas2">
-                        </div>
                     </div>
                     <div class="adicionar-campos">
                         <button type="button" id="adicionar-campos-mo">+</button>
@@ -342,7 +260,52 @@
                         <input type="text" id="distancia-valor" name="distancia-valor">
                     </div>
                     <h2>Valor total</h2>
-                    <p>R$27.873,13</p>
+                    <p id="valor-total">R$00.00</p>
+                </div>
+                <div class="observacoes">
+                    <h2>Observações</h2>
+                    <div class="campo-observacoes">
+                        <label for="observacao1">1 - Se o serviço não por problemas estruturais do imóvel ou outro de responsabilidade do cliente, este deverá pagar o valor referente á visita técnica, frete e logística do serviço programado.</label>
+                        <input type="text" id="observacao1" name="observacao1">
+                    </div>
+                    <div class="campo-observacoes">
+                        <label for="observacao2">2 - Caso haja desistência e cancelamento do serviço, o cliente deverá pagar o valor da compra de material e insumos e multa de 20% do valor do serviço.
+                        </label>
+                        <input type="text" id="observacao2" name="observacao2" readonly>
+                    </div>
+                    <div class="campo-observacoes">
+                        <label for="observacao3">3 - O Cliente pagará o valor antecipado como adiantamento e garantia da execuação do serviço, compra de materiais e insumos, no valor de:
+                        </label>
+                        <input type="text" id="observacao3" name="observacao3">
+                    </div>
+                </div>
+                <div class="prazos">
+                    <h2>Prazos</h2>
+                    <label for="validade-orcamento">Quantidade de dias do Prazo de validade do Orçamento:</label>
+                    <input type="text" id="validade-orcamento" name="validade-orcamento">
+                    <label for="data-servico">Data do serviço:</label>
+                    <input type="text" id="data-servico" name="data-servico">
+                    <label for="horario">Horário:</label>
+                    <input type="text" id="horario" name="horario">
+                </div>
+                <div class="cliente">
+                    <h2>Cliente</h2>
+                    <div class="campo">
+                        <label for="nome-cliente">Nome do Cliente:</label>
+                        <input type="text" id="nome-cliente" name="nome-cliente">
+                    </div>
+                    <div class="campo">
+                        <label for="rg-cliente">Nᵒ do RG:</label>
+                        <input type="text" id="rg-cliente" name="rg-cliente">
+                    </div>
+                    <div class="campo">
+                        <label for="autorizacao-cliente">Autorização do cliente:</label>
+                        <input type="text" id="autorizacao-cliente" name="autorizacao-cliente">
+                    </div>
+                    <div class="campo">
+                        <label for="cpf-cliente">Nᵒ do CPF:</label>
+                        <input type="text" id="cpf-cliente" name="cpf-cliente">
+                    </div>
                 </div>
                 <button id="submit">Baixar Formulário</button>
             </form>

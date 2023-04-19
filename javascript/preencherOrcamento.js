@@ -1,3 +1,16 @@
+function mudarPrecoTotal() {
+    const valorPreco = +document.querySelector("#valor-total-itens").value;
+    document.querySelector("#valor-total").textContent = "R$" + (valorPreco).toFixed(2);
+}
+
+function mudarPrecoTotalItens() {
+    const listaDePrecos = Array.from(document.querySelectorAll(".preco-final"));
+    document.querySelector("#valor-total-itens").value = listaDePrecos.reduce((total, item) => {
+        return (total + +item.value);
+    }, 0).toFixed(2);
+    mudarPrecoTotal();
+}
+
 function adicionarCampoDeItens(id) {
     const linha = document.createElement("div");
     linha.classList.add("linha-itens");
@@ -8,6 +21,8 @@ function adicionarCampoDeItens(id) {
     const inputItem = document.createElement("input");
     inputItem.name = `item${id}`;
     inputItem.type = "text";
+    inputItem.readOnly = true;
+    inputItem.value = id > 9 ? id : "0" + id;
     campoItem.appendChild(inputItem);
     linha.appendChild(campoItem);
 
@@ -17,9 +32,36 @@ function adicionarCampoDeItens(id) {
     const inputQuant = document.createElement("input");
     inputQuant.name = `quant${id}`;
     inputQuant.type = "text";
+    const campoPrecoUnitario = document.createElement("div");
+    campoPrecoUnitario.classList.add("campo");
+    campoPrecoUnitario.classList.add("preco-unitario");
+    const inputPrecoUnitario = document.createElement("input");
+    inputPrecoUnitario.name = `preco-unitario${id}`;
+    inputPrecoUnitario.type = "text";
+    const campoPrecoFinal = document.createElement("div");
+    campoPrecoFinal.classList.add("campo");
+    const inputPrecoFinal = document.createElement("input");
+    inputPrecoFinal.classList.add("preco-final");
+    inputPrecoFinal.name = `preco-final${id}`;
+    inputPrecoFinal.type = "text";
+    inputPrecoFinal.value = "0.00"
+    inputPrecoFinal.readOnly = true;
+    inputQuant.addEventListener("input", () => {
+        const quant = inputQuant.value === ""? 0 : +inputQuant.value;
+        const valorUnitarioStr = inputPrecoUnitario.value.replace("R$", "").replace(/(\.)\d{3}/, "").replace(",", ".");
+        const valorUnitarioNumero = valorUnitarioStr === ""? 0 : +valorUnitarioStr;
+        inputPrecoFinal.value = (quant * valorUnitarioNumero).toFixed(2); 
+        mudarPrecoTotalItens();
+    })
+    inputPrecoUnitario.addEventListener("input", () => {
+        const quant = inputQuant.value === ""? 0 : +inputQuant.value;
+        const valorUnitarioStr = inputPrecoUnitario.value.replace("R$", "").replace(/(\.)\d{3}/, "").replace(",", ".");
+        const valorUnitarioNumero = valorUnitarioStr === ""? 0 : +valorUnitarioStr;
+        inputPrecoFinal.value = (quant * valorUnitarioNumero).toFixed(2);
+        mudarPrecoTotalItens();
+    });
     campoQuant.appendChild(inputQuant);
     linha.appendChild(campoQuant);
-
     const campoMaterialServico = document.createElement("div");
     campoMaterialServico.classList.add("campo");
     campoMaterialServico.classList.add("material-servico");
@@ -28,22 +70,8 @@ function adicionarCampoDeItens(id) {
     inputMaterialServico.type = "text";
     campoMaterialServico.appendChild(inputMaterialServico);
     linha.appendChild(campoMaterialServico);
-
-    const campoPrecoUnitario = document.createElement("div");
-    campoPrecoUnitario.classList.add("campo");
-    campoPrecoUnitario.classList.add("preco-unitario");
-    const inputPrecoUnitario = document.createElement("input");
-    inputPrecoUnitario.name = `preco-unitario${id}`;
-    inputPrecoUnitario.type = "text";
     campoPrecoUnitario.appendChild(inputPrecoUnitario);
     linha.appendChild(campoPrecoUnitario);
-
-    const campoPrecoFinal = document.createElement("div");
-    campoPrecoFinal.classList.add("campo");
-    campoPrecoFinal.classList.add("preco-final");
-    const inputPrecoFinal = document.createElement("input");
-    inputPrecoFinal.name = `preco-final${id}`;
-    inputPrecoFinal.type = "text";
     campoPrecoFinal.appendChild(inputPrecoFinal);
     linha.appendChild(campoPrecoFinal);
 
@@ -139,15 +167,21 @@ function adicionarCampoDeProf(id) {
 }
 
 // Adicionar Campos em ítens
+adicionarCampoDeItens(document.querySelectorAll(".linha-itens").length);
+adicionarCampoDeItens(document.querySelectorAll(".linha-itens").length);
+adicionarCampoDeItens(document.querySelectorAll(".linha-itens").length);
+adicionarCampoDeItens(document.querySelectorAll(".linha-itens").length);
 const botaoAdicionarCampoItens = document.querySelector("#adicionar-campos-itens");
 botaoAdicionarCampoItens.addEventListener("click", () => {
-    adicionarCampoDeItens(document.querySelectorAll(".linha-itens").length + 1);
+    adicionarCampoDeItens(document.querySelectorAll(".linha-itens").length);
 });
 
 //Adicionar campos em mão de obra
+adicionarCampoDeMO(document.querySelectorAll(".linha-mo").length);
+adicionarCampoDeMO(document.querySelectorAll(".linha-mo").length);
 const botaoAdicionarCampoMO = document.querySelector("#adicionar-campos-mo");
 botaoAdicionarCampoMO.addEventListener("click", () => {
-    adicionarCampoDeMO(document.querySelectorAll(".linha-mo").length + 1);
+    adicionarCampoDeMO(document.querySelectorAll(".linha-mo").length);
 });
 
 const botaoAdicionarCampoProf = document.querySelector("#adicionar-campos-prof");
