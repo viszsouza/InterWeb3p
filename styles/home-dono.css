@@ -135,8 +135,13 @@ input {
     align-items: center;
 }
 
+.section-home a {
+    width: 46.4px; 
+    height: 46.4px;
+}
+
 .section-home p {
-    padding-left: 15px;
+    padding-left: 2em;
     margin-bottom: 30px;
 }
 
@@ -150,20 +155,24 @@ input {
     width: auto;
 }
 
+
 .status01 {
     font-size: 20px;
     font-weight: bold;
     color: #FF0000;
 }
+
 .status02 {
     font-size: 20px;
     font-weight: bold;
     color : #a2a2a2;
 }
+
 .status03 {
     font-size: 20px;
     font-weight: bold;
     color: #059205;
+    margin-left: 13px;
 }
 
 #more {
@@ -181,11 +190,4 @@ input {
 #seta {
     width: 25px;
     padding-left: 10px;
-}
-
-.user img {
-    margin-top: -1px;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
 }

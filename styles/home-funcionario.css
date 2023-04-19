@@ -140,8 +140,13 @@ input {
     align-items: center;
 }
 
+.section-home a {
+    width: 46.4px; 
+    height: 46.4px;
+}
+
 .section-home p {
-    padding-left: 15px;
+    padding-left: 2em;
     margin-bottom: 30px;
 }
 
@@ -169,6 +174,7 @@ input {
     font-size: 20px;
     font-weight: bold;
     color: #059205;
+    margin-left: 13px;
 }
 
 #more {

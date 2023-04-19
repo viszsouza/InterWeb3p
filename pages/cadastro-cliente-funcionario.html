@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html class="home" lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/cadastro-cliente-funcionario.css">
+    <script src="https://kit.fontawesome.com/3bc1a873c3.js" crossorigin="anonymous"></script>
+    <title>Cadastrar cliente</title>
+</head>
+<body class="home-body">    
+    <header class="tabs-home"> <!-- BARRA LATERAL -->
+        <div class="box-imagem">
+            <img class="logo-home" src="../images/logo.png" alt="">
+            <div class="fundo-logo"></div>
+        </div>
+
+        <ul class="navbar">
+            <a href="home-funcionario.html">
+                <li><i class="fas fa-home"></i> Home</li>
+            </a>
+            <div class="atual"></div>
+            <a href="cadastro-cliente-funcionario.html">
+                <li><i class="fas fa-user-plus"></i> Cadastrar Cliente</li>
+            </a>
+            <a href="#">
+                <li><i class="fa-solid fa-file-signature"></i> Prencher Orçamento</li>
+            </a>
+            <a href="#">
+                <li><i class="fas fa-list"></i> Lista de orçamentos</li>
+            </a>
+        </ul>
+        
+
+        <div class="user">
+            <div class="user-image">
+            </div>
+            <p>Usuário: Funcionário</p>
+        </div>
+
+    </header>
+
+    <section class="section-home" > <!-- CONTEUDO PRINCIPAL -->
+        <h1>Cadastrar Cliente</h1>
+        
+        <form action=""> <!-- INPUTS - FORMULÁRIO -->
+
+            <div class="input-grande" >
+               <label for="NOME">Nome da empresa</label>
+               <input type="text" name="nome" id="NOME">
+            </div>
+
+            <div class="campos-medios">
+                <div>
+                    <label for="CNPJ">CNPJ</label>
+                    <input type="number" name="cnpj" id="CNPJ" maxlength="14" pattern="([0-9]{2}[\.]?[0-9]{3}[\.]?[0-9]{3}[\/]?[0-9]{4}[-]?[0-9]{2})|([0-9]{3}[\.]?[0-9]{3}[\.]?[0-9]{3}[-]?[0-9]{2})
+                    ">
+                </div>
+                <div>
+                    <label for="CONTATO">Contato</label>
+                    <input type="tel" name="contato" id="CONTATO" pattern="^[0-9]{2}-([0-9]{8}|[0-9]{9})">
+                </div>
+            </div>
+
+            <div class="campos-medios">
+                <div>
+                    <label for="ENDERECO">Endereço</label>
+                    <input type="text" name="endereco" id="ENDERECO">
+                </div>
+                <div>
+                    <label for="EMAIL">Email</label>
+                    <input type="email" name="email" id="EMAIL">
+                </div>
+            </div>
+            
+            
+            <div class="campos-segunda-fileira">
+                <div class="campos-pequenos">
+                    <div class="input-pequeno">
+                        <label for="BAIRRO">Bairro</label>
+                        <input type="text" name="bairro" id="BAIRRO">
+                    </div>
+                
+                    <div class="input-pequeno">
+                        <label for="N-ENDERECO">Nº</label>
+                        <input type="text" name="n-endereco" id="N-ENDERECO">
+                    </div>
+                </div>
+                <div class="complemento">
+                    <label for="COMPLEMENTO">Complemento</label>
+                    <input type="text" name="complemento" id="COMPLEMENTO">
+                </div>
+            </div>
+
+           <div class="botoes" > <!-- BOTOES CANCELAR E CONFIRMAR -->
+               <button type="reset">Cancelar</button>
+               <button type="submit">Confirmar</button>
+           </div>
+        </form>
+        
+    </section>
+
+</body>
+</html>
