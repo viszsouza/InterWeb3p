@@ -1,0 +1,258 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+input {
+    outline: none;
+}
+
+/* HOME */
+.home, .home-body {
+    height: 100%;
+    margin: 0;
+}
+
+.home-body {
+    display: flex;
+}
+
+/* FIM HOME */
+
+/* BARRA LATERAL */
+
+.tabs-home {
+    height: 100%;
+    width: 30%;
+    background-color: #8DBBFF;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.tabs-home .box-imagem {
+    display: flex;
+    justify-content: center;
+}
+
+.tabs-home .box-imagem .logo-home {
+    width: 128px;
+    height: 156px;
+    margin: 35px 10px 35px 0;
+    border-radius: 16px;
+    z-index: 1;
+}
+
+.tabs-home .box-imagem .fundo-logo {
+    background-color: #fff;
+    margin: 20px 10px 30px 0;
+    padding: 100px;
+    position: absolute;
+    border-radius: 50%;
+}
+
+.tabs-home .navbar {
+    height: 100%;
+    margin-top: 4em;
+}
+
+.tabs-home li {
+    width: 97%;
+    background-color: #fff;
+    text-align: center;
+    margin: 0 0 5px 5px;
+    padding: 12px;
+    font-weight: bold;
+}
+
+.tabs-home a {
+    color: black;
+    text-decoration: none;
+}
+
+.tabs-home li:hover {
+    background-color: rgb(221, 220, 220);
+}
+
+.tabs-home div.atual {
+    background-color: black;
+    width: 5px;
+    height: 42.67px;
+    position: absolute;
+    margin-left: 5px;
+}
+
+.tabs-home .user {
+    margin: 0 0 10px 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tabs-home .user .user-image {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    text-align: center;
+    background-color: #fff;
+}
+
+.tabs-home .user p {
+    margin-left: 1em;
+    margin-right: 1em;
+    font-weight: bold;
+}
+
+/* FIM BARRA LATERAL */
+
+/* CONTEUDO PRINCIPAL */
+
+.section-home {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 3em;
+}
+
+.section-home h1 {
+    font-size: 2em;
+}
+
+.section-home form {
+    margin-top: 5em;
+    height: 100%;
+    width: 100%;
+    padding: 0 10em 0 10em;
+}
+
+/* INPUTS - FORMULARIO*/
+
+label {
+    display:block;
+    margin-left: 7px;
+}
+
+div.input-grande label {
+    font-size: 1.1em;
+    display: block;
+    margin: 0;
+}
+
+
+
+input {
+    background-color: #D9D9D9;
+    border-radius: 10px;
+    border: none;
+    height: 38px;
+    font-size: 1em;
+    padding-left: 5px;
+}
+
+div.input-grande label {
+    text-align: center;
+    margin-bottom: 3px;
+}
+
+div.input-grande input {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.campos-medios {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;   
+}
+
+.campos-medios label {
+    margin-left: 7px;
+    margin-bottom: 3px;
+}
+
+.campos-medios input {
+    width: 320px;
+}
+
+label[for="ENDERECO"], label[for="EMAIL"] {
+    margin-top: 10px;
+}
+
+div.campos-segunda-fileira {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.campos-pequenos {
+    display: flex;
+    width: 320px;
+    justify-content: space-between;
+}
+
+div.campos-pequenos input[id="N-ENDERECO"]{
+    width: 70px;
+}
+
+div.complemento input[id="COMPLEMENTO"] {
+    width: 320px;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* FIM INPUTS - FORMULARIO */
+
+/* BOTOES CANCELAR E CONFIRMAR */
+
+.botoes {
+    margin-top: 3em;
+    display: flex;
+    justify-content: space-between;
+}
+
+button {
+    font-weight: bold;
+    border:none;
+    border-radius: 25px;
+    width: 150px;
+    height: 49px;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+button:nth-child(1) {
+    background-color: rgb(243, 39, 39);
+}
+button:nth-child(1):hover {
+    background-color: rgba(255, 0, 0, 0.765);
+    transform: scale(1.05);
+    transition: 0.4s;
+    
+}
+
+button:nth-child(2) {
+    background-color: #46f41b;;
+}
+
+button:nth-child(2):hover {
+    background-color: #6fff4a;
+    transform: scale(1.05);
+    transition: 0.4s;
+}
+
+/* FIM BOTOES CANCELAR E CONFIRMAR */
+
+/* FIM CONTEUDO PRINCIPAL */
+
+
+/* MUDANÇAS */

@@ -173,5 +173,7 @@ input {
 }
 
 .section-home .form-cadastro-funcionario .inputs-medio .input-medio button:hover {
-    background-color: #7af45c;
+    background-color: #6fff4a;
+    transform: scale(1.05);
+    transition: 0.4s;
 }
