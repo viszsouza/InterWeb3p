@@ -154,7 +154,7 @@ textarea {
 .linha-itens {
     grid-column: 1 / 3;
     display: grid;
-    grid-template-columns: 1fr 1fr 6fr 1fr 1.5fr;
+    grid-template-columns: 1fr 1fr 6fr 1.5fr 1.5fr;
     gap: 5px;
 }
 
@@ -205,8 +205,12 @@ input:read-only {
 
 .linha-mo {
     display: grid;
-    grid-template-columns: 2fr repeat(5, 1.1fr);
+    grid-template-columns: 1.6fr repeat(5, 1.1fr);
     gap: 5px;
+}
+
+.mao-de-obra input {
+    font-size: 1rem;
 }
 
 .taxas {
@@ -222,6 +226,10 @@ input:read-only {
     display: grid;
     grid-template-columns: 3fr 1fr 2fr;
     gap: 5px;
+}
+
+.valorFixo {
+    grid-column: 1 / 3;
 }
 
 .taxas p, .taxas input {

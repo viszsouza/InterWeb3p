@@ -166,39 +166,37 @@
                 <div class="taxas">
                     <h2>Taxas</h2>
                     <div class="linha-taxa">
-                        <p>Mão de Obra</p>
-                        <p></p>
-                        <input type="text" id="mo-total" name="mo-total" value="R$7500,00" readonly>
+                        <p class="valorFixo">Mão de Obra</p>
+                        <input type="text" id="mo-total" name="mo-total" readonly>
                     </div>
                     <div class="linha-taxa">
-                        <p>Deslocamento</p>
-                        <p></p>
-                        <input type="text" id="deslocamento" name="deslocamento" value="R$375,00" readonly>
+                        <p class="valorFixo">Deslocamento</p>
+                        <input type="text" id="deslocamento" name="deslocamento" readonly>
                     </div>
                     <div class="linha-taxa">
                         <p>Seguro Garantia</p>
                         <p id="taxa-seguro-garantia">3%</p>
-                        <input type="text" id="seguro-garantia" name="seguro-garantia" value="R$448,84" readonly>
+                        <input type="text" id="seguro-garantia" class="taxa" name="seguro-garantia" value="R$448,84" readonly>
                     </div>
                     <div class="linha-taxa">
                         <p>Seguro Respon. Civil</p>
                         <p id="taxe-seguro-civil">5%</p>
-                        <input type="text" id="seguro-civil" name="seguro-civil" value="R$748,07" readonly>
+                        <input type="text" id="seguro-civil" class="taxa" name="seguro-civil" value="R$748,07" readonly>
                     </div>
                     <div class="linha-taxa">
                         <p>TX Administrativa</p>
                         <p id="taxa-admin">15%</p>
-                        <input type="text" id="admin-valor" name="admin-valor" value="R$2.423,75" readonly>
+                        <input type="text" id="admin-valor" class="taxa" name="admin-valor" value="R$2.423,75" readonly>
                     </div>
                     <div class="linha-taxa">
                         <p>Lucro</p>
                         <p id="taxa-lucro">20%</p>
-                        <input type="text" id="lucro-valor" name="taxa-admin-valor" value="R$3.716,42"readonly>
+                        <input type="text" id="lucro-valor" class="taxa" name="taxa-admin-valor" value="R$3.716,42"readonly>
                     </div>
                     <div class="linha-taxa">
                         <p>Impostos</p>
                         <p id="taxa-impostos">25%</p>
-                        <input type="text" id="impostos-valor" name="impostos-valor" value="R$5.574,63" readonly>
+                        <input type="text" id="impostos-valor" class="taxa" name="impostos-valor" value="R$5.574,63" readonly>
                     </div>
                     <div class="linha-taxa desconto">
                         <p>Desconto</p>
@@ -251,12 +249,13 @@
                     </div>
                 </div>
                 <div class="valor-total">
+                    <h2>Deslocamento</h2>
                     <div class="campo2">
                         <label for="distancia">Distância</label>
                         <input type="number" id="distancia" name="distancia">
                     </div>
                     <div class="campo2">
-                        <label for="distancia-vlor">Valor / KM</label>
+                        <label for="distancia-valor">Valor / KM</label>
                         <input type="text" id="distancia-valor" name="distancia-valor">
                     </div>
                     <h2>Valor total</h2>
