@@ -1,8 +1,41 @@
+function calculoDeTaxas(soma) {
+    let resultado = 0;
+    const seguroGarantiaValor = +(soma * (+document.querySelector("#taxa-seguro-garantia").textContent.slice(0, -1) / 100).toFixed(2)).toFixed(2);
+    document.querySelector("#seguro-garantia").value = "R$" + seguroGarantiaValor;
+    resultado += seguroGarantiaValor;
+
+    const seguroCivilValor = +(soma * (+document.querySelector("#taxa-seguro-civil").textContent.slice(0, -1) / 100).toFixed(2)).toFixed(2);
+    document.querySelector("#seguro-civil").value = "R$" + seguroCivilValor;
+    resultado += seguroCivilValor;
+
+    const adminValor = +((soma + resultado) * (+document.querySelector("#taxa-admin").textContent.slice(0, -1) / 100).toFixed(2)).toFixed(2);
+    document.querySelector("#admin-valor").value = "R$" + adminValor;
+    resultado += adminValor;
+
+    const lucroValor = +((soma + resultado) * (+document.querySelector("#taxa-lucro").textContent.slice(0, -1) / 100).toFixed(2)).toFixed(2);
+    document.querySelector("#lucro-valor").value = "R$" + lucroValor;
+    resultado += lucroValor;
+    console.log(lucroValor);
+
+    const impostosValor = +((soma + resultado) * (+document.querySelector("#taxa-impostos").textContent.slice(0, -1) / 100).toFixed(2)).toFixed(2);
+    document.querySelector("#impostos-valor").value = "R$" + impostosValor;
+    resultado += impostosValor;
+    console.log(impostosValor);
+
+    const descontoValor = +((soma + adminValor +  lucroValor) * (+document.querySelector("#taxa-desconto").textContent.slice(0, -1) / 100).toFixed(2) * -1).toFixed(2);
+    document.querySelector("#desconto-valor").value = "- R$" + descontoValor * -1;
+    resultado += descontoValor;
+    console.log(descontoValor);
+
+    return resultado;
+}
+
 function mudarPrecoTotal() {
     const valorItens = +document.querySelector("#valor-total-itens").value.replace("R$", "").replace(/(\.)\d{3}/, "").replace(",", ".");
     const valorMO = +document.querySelector("#mo-total").value.replace("R$", "").replace(/(\.)\d{3}/, "").replace(",", ".");
     const deslocamento = +document.querySelector("#deslocamento").value.replace("R$", "").replace(/(\.)\d{3}/, "").replace(",", ".");
-    document.querySelector("#valor-total").textContent = "R$" + (valorItens + valorMO + deslocamento).toFixed(2);
+    const taxas = calculoDeTaxas(valorItens + valorMO + deslocamento);
+    document.querySelector("#valor-total").textContent = "R$" + (valorItens + valorMO + deslocamento + taxas).toFixed(2);
 }
 
 function mudarPrecoTotalItens() {
@@ -156,9 +189,9 @@ function adicionarCampoDeMO(id) {
     inputPessoas.addEventListener("input", () => {mudarPrecoMO(inputPessoas, inputDias, inputPrecoDia, inputHoras, inputPrecoHoras, precoMO);});
 
     inputDias.addEventListener("input", () => {mudarPrecoMO(inputPessoas, inputDias, inputPrecoDia, inputHoras, inputPrecoHoras, precoMO);});
-
+    
     inputPrecoDia.addEventListener("input", () => {mudarPrecoMO(inputPessoas, inputDias, inputPrecoDia, inputHoras, inputPrecoHoras, precoMO);});
-
+    
     inputHoras.addEventListener("input", () => {mudarPrecoMO(inputPessoas, inputDias, inputPrecoDia, inputHoras, inputPrecoHoras, precoMO);});
 
     inputPrecoHoras.addEventListener("input", () => {mudarPrecoMO(inputPessoas, inputDias, inputPrecoDia, inputHoras, inputPrecoHoras, precoMO);});
@@ -200,7 +233,6 @@ function adicionarCampoDeProf(id) {
     cftInput.type = "text";
     cftInput.name = `cft-crea${id}`;
     linha.appendChild(cftInput);
-
     document.querySelector(".profissionais").insertBefore(linha, document.querySelector(".profissionais .adicionar-campos"));
 }
 
