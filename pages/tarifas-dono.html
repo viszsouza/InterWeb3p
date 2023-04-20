@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html class="home" lang="pt-br">
-<head>
+<html class="home" lang="pt-BR">
+<head> 
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../styles/cadastro-funcionario-dono.css">
+    <title>Tarifas</title>
+    <link rel="stylesheet" href="../styles/tarifas-dono.css">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sua-integridade-aqui" crossorigin="anonymous"/>
-    <title>Cadastrar funcionário</title>
 </head>
-<body class="home-body">    
+<body class="tarifas-body">
     <header class="tabs-home">
         <div class="box-imagem">
             <img class="logo-home" src="../images/logo.png" alt="">
@@ -16,17 +16,16 @@
         </div>
 
         <ul>
-            
             <a href="home-dono.html">
                 <li><i class="fas fa-home"></i> Home</li>
             </a>
-            <div class="atual"></div>
             <a href="cadastro-funcionario-dono.html">
                 <li><i class="fas fa-user-plus"></i> Cadastrar funcionário</li>
             </a>
             <a href="cadastro-cliente-dono.html">
                 <li><i class="fas fa-user-plus"></i></i> Cadastrar cliente</li>
             </a>
+            <div class="atual"></div>
             <a href="tarifas-dono.html">
                 <li><i class="fas fa-file-invoice"></i> Tarifas</li>
             </a>
@@ -38,49 +37,46 @@
             </a>
         </ul>
         
-
         <div class="user">
             <div class="user-image">
+                
             </div>
             <p>Usuário: Dono</p>
         </div>
     </header>
 
     <section class="section-home">
-        <h1>Cadastrar Funcionário</h1>
-
-        <form class="form-cadastro-funcionario">
-            <div class="inputs-grande">
-                <label for="NOME">Nome Completo</label>
-                <input type="text" name="NOME" id="NOME">
-            </div>
-            <div class="inputs-grande">
-                <label for="EMAIL">Email</label>
-                <input type="email" name="EMAIL" id="EMAIL">
-            </div>
-            <div class="inputs-medio">
-                <div class="input-medio">
-                    <label for="SENHA">Senha</label>
-                    <input  class="input-esquerdo" type="password" name="SENHA" id="SENHA">
-                </div>                
-                <div class="input-medio">
-                    <label for="DATANASC">Data de Nascimento</label>
-                    <input class="input-direito" type="date" name="DATANASC" id="DATANASC">
+        <h1>Tarifas</h1>
+        <form action="#" method="post">
+            <div class="grid-input">
+                <div class="campo">
+                    <label for="taxataxaAdm">Taxa Adminstrativa:</label>
+                    <input type="text" id="taxa" name="taxaAdm" pattern="\d+%?" placeholder="Insira a taxa" required>
                 </div>
-            </div>
-            <div class="inputs-medio">
-                <div class="input-medio">
-                    <label for="SENHACONFIRM">Confirmar Senha</label>
-                    <input  class="input-esquerdo" type="password" name="SENHACONFIRM" id="SENHACONFIRM">
-                </div>                
-                <div class="input-medio">
-                    <button>CADASTRAR</button>
+    
+                <div class="campo">
+                    <label for="lucro">Lucro:</label>
+                    <input type="text" id="lucro" name="lucro" placeholder="Insira o lucro previsto" pattern="\d+%?" required>
                 </div>
-            </div>
-            
+                
+                <div class="campo">
+                    <label for="seguro-civil">Seguro Respon. Civil:</label>
+                    <input type="text" id="seguro-civil" name="seguro-civil" placeholder="Insira a taxa" pattern="\d+%?" required>
+                </div>
+    
+                <div class="campo">
+                    <label for="impostos">Impostos:</label>
+                    <input type="text" id="impostos" name="imposto" placeholder="Insira o Imposto" pattern="\d+%?" required>
+                </div>
 
+                <div class="campo">
+                    <label for="seguro-garantia">Seguro Garantia:</label>
+                    <input type="text" id="seguro-garantia" placeholder="Insira a taxa" name="seguro-garantia" pattern="\d+%?" required>
+                </div>
+    
+                <button type="submit">Salvar Formula</button>
+            </div>
         </form>
     </section>
-
 </body>
 </html>

@@ -1,0 +1,165 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    background-color: white;
+}
+
+.tarifas-body {
+    min-width: 100vw;
+    display: flex;
+}
+
+section {
+    flex: auto;
+}
+
+h1 {
+    font-size: 2rem;
+    margin-top: 50px;
+    margin-bottom: 75px;
+    text-align: center;
+}
+
+form {
+    margin: 0 auto;
+    height: 45%;
+    width: 80%;
+}
+
+.grid-input {
+    padding: 20px;
+    height: 50%;
+    width: 100%;
+    background-color: rgb(255, 255, 255);
+    
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-auto-rows: 1fr;
+    column-gap: 20px;
+    row-gap: 10px;
+}   
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.campo label {
+    font-size: 1.2rem;
+}
+
+.campo input {
+    padding-left: 10px;
+    height: 3.5rem;
+    width: 100%;
+    background-color: #D9D9D9;
+    color: #000000;
+    font-size: 1.3rem;
+    border: none;
+    border-radius: 15px;
+    outline: none;
+}
+
+.grid-input button {
+    cursor: pointer;
+    margin: 20px auto;
+    height: 50px;
+    width: 300px;
+    background-color:#C0FFB0;
+    font-size: 1rem;
+    border-radius: 10px;
+    border: none;
+    grid-column: 1 / 3;
+}
+
+/* Side-Bar */
+.tabs-home {
+    height: 100vh;
+    width: 23%;
+    background-color: #8DBBFF;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.tabs-home .box-imagem {
+    display: flex;
+    justify-content: center;
+}
+
+.tabs-home .box-imagem .logo-home {
+    width: 128px;
+    height: 156px;
+    margin: 35px 10px 35px 0;
+    border-radius: 16px;
+    z-index: 1;
+}
+
+.tabs-home .box-imagem .fundo-logo {
+    background-color: #fff;
+    margin: 20px 10px 30px 0;
+    padding: 100px;
+    position: absolute;
+    border-radius: 50%;
+}
+
+.tabs-home .navbar {
+    height: 100%;
+    margin-top: 4em;
+}
+
+.tabs-home li {
+    width: 97%;
+    background-color: #fff;
+    text-align: center;
+    margin: 0 0 5px 5px;
+    padding: 12px;
+    font-weight: bold;
+}
+
+.tabs-home a {
+    color: black;
+    text-decoration: none;
+}
+
+.tabs-home li:hover {
+    background-color: rgb(221, 220, 220);
+}
+
+.tabs-home div.atual {
+    background-color: black;
+    width: 5px;
+    height: 42.67px;
+    position: absolute;
+    margin-left: 5px;
+}
+
+.tabs-home .user {
+    margin: 0 0 10px 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tabs-home .user .user-image {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    text-align: center;
+    background-color: #fff;
+}
+
+.tabs-home .user p {
+    margin-left: 1em;
+    margin-right: 1em;
+    font-weight: bold;
+}

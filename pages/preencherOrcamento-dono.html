@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/preencherOrcamento-dono.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sua-integridade-aqui" crossorigin="anonymous"/>
+    <script src="../javascript/preencherOrcamento.js" defer></script>
+    <title>Preencher Orçamento</title>
+</head>
+<body>
+    <div class="pagina">
+        <header class="tabs-home">
+            <div class="menu">
+                <div class="box-imagem">
+                    <img class="logo-home" src="../images/logo.png" alt="">
+                    <div class="fundo-logo"></div>
+                </div>
+                <ul>
+                    <a href="home-dono.html">
+                        <li><i class="fas fa-home"></i> Home</li>
+                    </a>
+                    <a href="cadastro-funcionario-dono.html">
+                        <li><i class="fas fa-user-plus"></i> Cadastrar funcionário</li>
+                    </a>
+                    <a href="cadastro-cliente-dono.html">
+                        <li><i class="fas fa-user-plus"></i> Cadastrar cliente</li>
+                    </a>
+                    <a href="tarifas-dono.html">
+                        <li><i class="fas fa-file-invoice"></i> Tarifas</li>
+                    </a>
+                    <div class="atual"></div>
+                    <a href="preencherOrcamento-dono.html">
+                        <li><i class="fas fa-list-alt"></i> Preencher orçamentos</li>
+                    </a>
+                    <a href="lista-orcamento-dono.html">
+                        <li><i class="fas fa-check-circle"></i> Lista de orçamentos</li>
+                    </a>
+                </ul>
+                <div class="user">
+                    <div class="user-image">
+                    </div>
+                    <p>Usuário: Dono</p>
+                </div>
+            </div>
+        </header>
+        <section>
+            <h1>Orçamento</h1>
+            <form action="#">
+                <div class="orcamento-meta">
+                    <div class="campo">
+                        <label for="data-atual">Data:</label>
+                        <input type="date" name="data" placeholder="dd/mm/yyyy" id="data-atual" class="data-atual" value="">
+                    </div>
+                    <div class="ids">
+                        <div class="campo">
+                            <label for="orcamento-numero">Orçamento Nᵒ</label>
+                            <input type="text" id="orcamento-numero" name="orcamento-numero">
+                        </div>
+                        <div class="campo">
+                            <label for="os-numero">OS Nᵒ</label>
+                            <input type="text" id="os-numero" name="os-numero">
+                        </div>
+                    </div>
+                </div>
+                <div class="informacoes">
+                    <h2>Informações do Cliente</h2>
+                    <div class="campo">
+                        <label for="cliente">Cliente</label>
+                        <input type="text" id="cliente" name="cliente">
+                    </div>
+                    <div class="campo">
+                        <label for="setor">Setor</label>
+                        <input type="text" id="setor" name="setor">
+                    </div>
+                    <div class="campo">
+                        <label for="endereco">Endereço</label>
+                        <input type="text" id="endereco" name="endereco">
+                    </div>
+                    <div class="campo">
+                        <label for="cidade">Cidade</label>
+                        <input type="text" id="cidade" name="cidade">
+                    </div>
+                    <div class="contato-cliente">
+                        <div class="campo">
+                            <label for="email">Email</label>
+                            <input type="text" id="email" name="email">
+                        </div>
+                        <div class="campo">
+                            <label for="whatsapp">Whatsapp</label>
+                            <input type="text" id="whatsapp" name="whatsapp">
+                        </div>
+                    </div>
+                </div>
+                <div class="servico">
+                    <h2>Serviço</h2>
+                    <div class="campo">
+                        <label for="tipo-servico">Tipo de serviço</label>
+                        <input type="text" id="tipo-servico" name="tipo-servico">
+                    </div>
+                    <div class="campo">
+                        <label for="descricao-servico">Descrição detalhada do serviço</label>
+                        <textarea name="descricao-servico" id="descricao-servico"></textarea>
+                    </div>
+                    <div class="campo">
+                        <label for="limitacao-servico">Limitações do serviço</label>
+                        <textarea name="limitacao-servico" id="limitacao-servico"></textarea>
+                    </div>
+                </div>
+                <div class="itens">
+                    <h2>Itens</h2>
+                    <div class="linha-itens" id="linha1">
+                        <div class="campo item">
+                            <label>Item</label>
+                        </div>
+                        <div class="campo quant">
+                            <label>Quant</label>
+                        </div>
+                        <div class="campo material-servico">
+                            <label>Material - Serviço</label>
+                        </div>
+                        <div class="campo preco-unitario">
+                            <label>Unidade</label>
+                        </div>
+                        <div class="campo">
+                            <label>Preço final</label>
+                        </div>
+                    </div>
+                    <div class="adicionar-campos">
+                        <button type="button" id="adicionar-campos-itens">+</button>
+                        <label for="adicionar-campos-itens"> Adicionar mais campos</label>
+                    </div>
+                    <div class="valor-total-itens">
+                        <label for="valor-total-itens">Valor total dos Itens</label>
+                        <input type="text" id="valor-total-itens" name="valor-total-itens" readonly>
+                    </div>
+                </div>
+                <div class="mao-de-obra">
+                    <h2>Mão de obra</h2>                    
+                    <div class="linha-mo">
+                        <div class="campo mo">
+                            <label for="profissional">Profissional</label>
+                        </div>
+                        <div class="campo mo">
+                            <label for="pessoas">Pessoas</label>
+                        </div>
+                        <div class="campo mo">
+                            <label for="dias">Dias</label>
+                        </div>
+                        <div class="campo mo">
+                            <label for="preco-dia">Dias R$</label>
+                        </div>
+                        <div class="campo mo">
+                            <label for="horas">Horas</label>
+                        </div>
+                        <div class="campo mo">
+                            <label for="preco-horas">Horas R$</label>
+                        </div> 
+                    </div>
+                    <div class="adicionar-campos">
+                        <button type="button" id="adicionar-campos-mo">+</button>
+                        <label for="adicionar-campos-mo"> Adicionar mais campos</label>
+                    </div>
+                </div>
+                <div class="taxas">
+                    <h2>Taxas</h2>
+                    <div class="linha-taxa">
+                        <p class="valorFixo">Mão de Obra</p>
+                        <input type="text" id="mo-total" name="mo-total" readonly>
+                    </div>
+                    <div class="linha-taxa">
+                        <p class="valorFixo">Deslocamento</p>
+                        <input type="text" id="deslocamento" name="deslocamento" readonly>
+                    </div>
+                    <div class="linha-taxa">
+                        <p>Seguro Garantia</p>
+                        <p id="taxa-seguro-garantia">3%</p>
+                        <input type="text" id="seguro-garantia" class="taxa" name="seguro-garantia" value="R$448,84" readonly>
+                    </div>
+                    <div class="linha-taxa">
+                        <p>Seguro Respon. Civil</p>
+                        <p id="taxe-seguro-civil">5%</p>
+                        <input type="text" id="seguro-civil" class="taxa" name="seguro-civil" value="R$748,07" readonly>
+                    </div>
+                    <div class="linha-taxa">
+                        <p>TX Administrativa</p>
+                        <p id="taxa-admin">15%</p>
+                        <input type="text" id="admin-valor" class="taxa" name="admin-valor" value="R$2.423,75" readonly>
+                    </div>
+                    <div class="linha-taxa">
+                        <p>Lucro</p>
+                        <p id="taxa-lucro">20%</p>
+                        <input type="text" id="lucro-valor" class="taxa" name="taxa-admin-valor" value="R$3.716,42"readonly>
+                    </div>
+                    <div class="linha-taxa">
+                        <p>Impostos</p>
+                        <p id="taxa-impostos">25%</p>
+                        <input type="text" id="impostos-valor" class="taxa" name="impostos-valor" value="R$5.574,63" readonly>
+                    </div>
+                    <div class="linha-taxa desconto">
+                        <p>Desconto</p>
+                        <input type="text" id="taxa-desconto" name="taxa-desconto">
+                        <input type="text" id="desconto-valor" name="desconto-valor" readonly>
+                    </div>
+                </div>
+                <div class="profissionais">
+                    <h2>Nome dos Profissionais</h2>
+                    <div class="linha-prof">
+                        <p>Nome:</p>
+                        <input type="text" name="nome-profissional1">
+                        <p>CFT/CREA:</p>
+                        <input type="text" name="cft-crea1">
+                    </div>
+                    <div class="linha-prof">
+                        <p>Nome:</p>
+                        <input type="text" name="nome-profissional2">
+                        <p>CFT/CREA:</p>
+                        <input type="text" name="cft-crea2">
+                    </div>
+                    <div class="adicionar-campos">
+                        <button type="button" id="adicionar-campos-prof">+</button>
+                        <label for="adicionar-campos-prof"> Adicionar mais campos</label>
+                    </div>
+                </div>
+                <div class="pagamento">
+                    <h2>Formas de Pagamento</h2>
+                    <div class="banco">
+                        <div class="campo2">
+                            <label for="banco">Banco:</label>
+                            <input type="text" id="banco" name="banco">
+                        </div>
+                        <div class="campo2">
+                            <label for="agencia">Agência:</label>
+                            <input type="text" id="agencia" name="agencia">
+                        </div>
+                        <div class="campo2">
+                            <label for="conta-corrente">Conta Corrente</label>
+                            <input type="text" id="conta-corrente" name="conta-corrente">
+                        </div>
+                    </div>
+                    <div class="campo2">
+                        <label for="pix">PIX:</label>
+                        <input type="text" id="pix" name="pix">
+                    </div>
+                    <div class="campo2">
+                        <label for="email-local">Email:</label>
+                        <input type="email" id="email-local" name="email-local" value="placeservicos@gmail.com">
+                    </div>
+                </div>
+                <div class="valor-total">
+                    <h2>Deslocamento</h2>
+                    <div class="campo2">
+                        <label for="distancia">Distância</label>
+                        <input type="number" id="distancia" name="distancia">
+                    </div>
+                    <div class="campo2">
+                        <label for="distancia-valor">Valor / KM</label>
+                        <input type="text" id="distancia-valor" name="distancia-valor">
+                    </div>
+                    <h2>Valor total</h2>
+                    <p id="valor-total">R$00.00</p>
+                </div>
+                <div class="observacoes">
+                    <h2>Observações</h2>
+                    <div class="campo-observacoes">
+                        <label for="observacao1">1 - Se o serviço não por problemas estruturais do imóvel ou outro de responsabilidade do cliente, este deverá pagar o valor referente á visita técnica, frete e logística do serviço programado.</label>
+                        <input type="text" id="observacao1" name="observacao1">
+                    </div>
+                    <div class="campo-observacoes">
+                        <label for="observacao2">2 - Caso haja desistência e cancelamento do serviço, o cliente deverá pagar o valor da compra de material e insumos e multa de 20% do valor do serviço.
+                        </label>
+                        <input type="text" id="observacao2" name="observacao2" readonly>
+                    </div>
+                    <div class="campo-observacoes">
+                        <label for="observacao3">3 - O Cliente pagará o valor antecipado como adiantamento e garantia da execuação do serviço, compra de materiais e insumos, no valor de:
+                        </label>
+                        <input type="text" id="observacao3" name="observacao3">
+                    </div>
+                </div>
+                <div class="prazos">
+                    <h2>Prazos</h2>
+                    <label for="validade-orcamento">Quantidade de dias do Prazo de validade do Orçamento:</label>
+                    <input type="text" id="validade-orcamento" name="validade-orcamento">
+                    <label for="data-servico">Data do serviço:</label>
+                    <input type="text" id="data-servico" name="data-servico">
+                    <label for="horario">Horário:</label>
+                    <input type="text" id="horario" name="horario">
+                </div>
+                <div class="cliente">
+                    <h2>Cliente</h2>
+                    <div class="campo">
+                        <label for="nome-cliente">Nome do Cliente:</label>
+                        <input type="text" id="nome-cliente" name="nome-cliente">
+                    </div>
+                    <div class="campo">
+                        <label for="rg-cliente">Nᵒ do RG:</label>
+                        <input type="text" id="rg-cliente" name="rg-cliente">
+                    </div>
+                    <div class="campo">
+                        <label for="autorizacao-cliente">Autorização do cliente:</label>
+                        <input type="text" id="autorizacao-cliente" name="autorizacao-cliente">
+                    </div>
+                    <div class="campo">
+                        <label for="cpf-cliente">Nᵒ do CPF:</label>
+                        <input type="text" id="cpf-cliente" name="cpf-cliente">
+                    </div>
+                </div>
+                <button id="submit">Baixar Formulário</button>
+            </form>
+        </section>
+    </div>
+</body>
+</html>
