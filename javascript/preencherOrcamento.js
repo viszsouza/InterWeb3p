@@ -1,3 +1,39 @@
+function tratarFloats(floatStr) {
+    if (!/\./.test(floatStr)) return [floatStr, 0];
+    const numerosDepoisDaVirgula = +(floatStr.length - 1 - floatStr.search(/\./));
+    return [floatStr.replace(".", ""), numerosDepoisDaVirgula];
+}
+
+function calcularComFloats(valor1, operador, valor2) {
+    const valor1tratado = tratarFloats(valor1);
+    const valor2tratado = tratarFloats(valor2);
+    switch (operador) {
+        case "+":
+            return somarFloats(valor1tratado, valor2tratado);
+        case "-":
+            return subtrairFloats(valor1tratado, valor2tratado);
+        case "*":
+            return multiplicarFloats(valor1tratado, valor2tratado);
+        case "/":
+            return dividirFloats(valor1tratado, valor2tratado);
+        default:
+            return "0";
+    }
+}
+
+function somarFloats(valor1, valor2) {
+    let resultado = "";
+    const maiorEspacoDecimal = valor1[1] >= valor2[1]? valor1 : valor2;
+    const menorEspacoDecimal = valor2[1] <= valor1[1]? valor2 : valor1;
+    if (valor1[1] > valor2[1] || valor2[1] > valor1[1]) {
+        resultado += maiorEspacoDecimal.slice(-(maiorEspacoDecimal[1] - menorEspacoDecimal[1]));
+        maiorEspacoDecimal[0] = maiorEspacoDecimal[0].slice(0, -(maiorEspacoDecimal[1] - menorEspacoDecimal[1]));
+    }
+    resultado = (+maiorEspacoDecimal[0] + +menorEspacoDecimal[0]) + resultado;
+    resultado = resultado.slice(0, -(maiorEspacoDecimal[1])) + "." + resultado.slice(-(maiorEspacoDecimal[1]));
+    return resultado;
+}
+
 function calculoDeTaxas(soma) {
     let resultado = 0;
     const seguroGarantiaValor = +(soma * (+document.querySelector("#taxa-seguro-garantia").textContent.slice(0, -1) / 100).toFixed(2)).toFixed(2);
