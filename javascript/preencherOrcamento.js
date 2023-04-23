@@ -34,6 +34,12 @@ function subtrairFloats(valor1, valor2) {
     return resultado;
 }
 
+function multiplicarFloats(valor1, valor2) {
+    let resultado = (+valor1[0] * +valor2[0]).toString();
+    resultado = resultado.slice(0, -(valor1[1] + valor2[1])) + "." + resultado.slice(-(valor1[1] + valor2[1]));
+    return resultado;
+}
+
 function calcularComFloats(valor1, operador, valor2) {
     const valor1tratado = tratarFloats(valor1);
     const valor2tratado = tratarFloats(valor2);
