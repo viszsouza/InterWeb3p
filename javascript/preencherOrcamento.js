@@ -359,3 +359,9 @@ distanciaValor.addEventListener("input", () => {
     document.querySelector("#deslocamento").value = "R$" + (+calcularFloats(distancia.value, "*", distanciaValor.value.replace(/[R$]/g, ""))).toFixed(2);
     mudarPrecoTotal();
 });
+
+document.querySelector("#taxa-desconto").addEventListener("input", () => {
+    const taxa = document.querySelector("#taxa-desconto");
+    taxa.value = taxa.value.replace(/%/g, "") + "%";
+    mudarPrecoTotal(); 
+});
