@@ -4,6 +4,36 @@ function tratarFloats(floatStr) {
     return [floatStr.replace(".", ""), numerosDepoisDaVirgula];
 }
 
+function somarFloats(valor1, valor2) {
+    let resultado = "";
+    const maiorEspacoDecimal = valor1[1] >= valor2[1]? valor1 : valor2;
+    const menorEspacoDecimal = valor2[1] <= valor1[1]? valor2 : valor1;
+    if (valor1[1] > valor2[1] || valor2[1] > valor1[1]) {
+        resultado += maiorEspacoDecimal.slice(-(maiorEspacoDecimal[1] - menorEspacoDecimal[1]));
+        maiorEspacoDecimal[0] = maiorEspacoDecimal[0].slice(0, -(maiorEspacoDecimal[1] - menorEspacoDecimal[1]));
+    }
+    resultado = (+maiorEspacoDecimal[0] + +menorEspacoDecimal[0]) + resultado;
+    resultado = resultado.slice(0, -(maiorEspacoDecimal[1])) + "." + resultado.slice(-(maiorEspacoDecimal[1]));
+    return resultado;
+}
+
+function subtrairFloats(valor1, valor2) {
+    let resultado = "";
+    const maiorEspacoDecimal = valor1[1] >= valor2[1]? valor1 : valor2;
+    const menorEspacoDecimal = valor2[1] <= valor1[1]? valor2 : valor1;
+    if (valor1[1] > valor2[1] || valor2[1] > valor1[1]) {
+        if (valor1[1] > valor2[1]) {
+            resultado += maiorEspacoDecimal.slice(-(maiorEspacoDecimal[1] - menorEspacoDecimal[1]));
+            maiorEspacoDecimal[0] = maiorEspacoDecimal[0].slice(0, -(maiorEspacoDecimal[1] - menorEspacoDecimal[1]));
+        } else {
+            valor1[0] += "0".repeat(maiorEspacoDecimal[1] - menorEspacoDecimal[1]);
+        }
+    }
+    resultado = (+valor1[0] - +valor2[0]) + resultado;
+    resultado = resultado.slice(0, -(maiorEspacoDecimal[1])) + "." + resultado.slice(-(maiorEspacoDecimal[1]));
+    return resultado;
+}
+
 function calcularComFloats(valor1, operador, valor2) {
     const valor1tratado = tratarFloats(valor1);
     const valor2tratado = tratarFloats(valor2);
@@ -21,18 +51,6 @@ function calcularComFloats(valor1, operador, valor2) {
     }
 }
 
-function somarFloats(valor1, valor2) {
-    let resultado = "";
-    const maiorEspacoDecimal = valor1[1] >= valor2[1]? valor1 : valor2;
-    const menorEspacoDecimal = valor2[1] <= valor1[1]? valor2 : valor1;
-    if (valor1[1] > valor2[1] || valor2[1] > valor1[1]) {
-        resultado += maiorEspacoDecimal.slice(-(maiorEspacoDecimal[1] - menorEspacoDecimal[1]));
-        maiorEspacoDecimal[0] = maiorEspacoDecimal[0].slice(0, -(maiorEspacoDecimal[1] - menorEspacoDecimal[1]));
-    }
-    resultado = (+maiorEspacoDecimal[0] + +menorEspacoDecimal[0]) + resultado;
-    resultado = resultado.slice(0, -(maiorEspacoDecimal[1])) + "." + resultado.slice(-(maiorEspacoDecimal[1]));
-    return resultado;
-}
 
 function calculoDeTaxas(soma) {
     let resultado = 0;
