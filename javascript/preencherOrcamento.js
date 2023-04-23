@@ -1,46 +1,75 @@
+// Área das funções de cáculo com floats
+
+/* tratarFloats(floatStr): transforma string de floats no formato necessário para as outras
+                        funções.
+                        Recebe: Uma string que contém APENAS um número de ponto flutuante.
+                        Retorna: Um array com [string do float sem o ponto flutuante, quantidade
+                                 de números depois da vírgula]*/
 function tratarFloats(floatStr) {
     if (!/\./.test(floatStr)) return [floatStr, 0];
     const numerosDepoisDaVirgula = +(floatStr.length - 1 - floatStr.search(/\./));
     return [floatStr.replace(".", ""), numerosDepoisDaVirgula];
 }
 
+/* somarFloats(valor1, valor2): faz uma adição entre dois floats tratados(ver tratarFloats()).
+                        Recebe: float tratado, float tratado.
+                        Retorna: a soma precisa dos dois valores em uma string*/
 function somarFloats(valor1, valor2) {
     let resultado = "";
     const maiorEspacoDecimal = valor1[1] >= valor2[1]? valor1 : valor2;
     const menorEspacoDecimal = valor2[1] <= valor1[1]? valor2 : valor1;
     if (valor1[1] > valor2[1] || valor2[1] > valor1[1]) {
-        resultado += maiorEspacoDecimal.slice(-(maiorEspacoDecimal[1] - menorEspacoDecimal[1]));
+        resultado += maiorEspacoDecimal[0].slice(-(maiorEspacoDecimal[1] - menorEspacoDecimal[1]));
         maiorEspacoDecimal[0] = maiorEspacoDecimal[0].slice(0, -(maiorEspacoDecimal[1] - menorEspacoDecimal[1]));
     }
     resultado = (+maiorEspacoDecimal[0] + +menorEspacoDecimal[0]) + resultado;
-    resultado = resultado.slice(0, -(maiorEspacoDecimal[1])) + "." + resultado.slice(-(maiorEspacoDecimal[1]));
+    if (valor1[1] !== 0 || valor2[1] !== 0) {
+        resultado = resultado.slice(0, -(maiorEspacoDecimal[1])) + "." + resultado.slice(-(maiorEspacoDecimal[1]));
+    }
     return resultado;
 }
 
+/* subtrairFloats(valor1, valor2): faz a subtração entre dois floats tratados(ver tratarFloats()).
+                        OBS: Apenas utilizar com números positivos na ordem maior para menor.
+                        Recebe: float tratado, float tratado.
+                        Retorna: a subtração precisa dos dois valores em uma string*/
 function subtrairFloats(valor1, valor2) {
     let resultado = "";
     const maiorEspacoDecimal = valor1[1] >= valor2[1]? valor1 : valor2;
     const menorEspacoDecimal = valor2[1] <= valor1[1]? valor2 : valor1;
     if (valor1[1] > valor2[1] || valor2[1] > valor1[1]) {
         if (valor1[1] > valor2[1]) {
-            resultado += maiorEspacoDecimal.slice(-(maiorEspacoDecimal[1] - menorEspacoDecimal[1]));
+            resultado += maiorEspacoDecimal[0].slice(-(maiorEspacoDecimal[1] - menorEspacoDecimal[1]));
             maiorEspacoDecimal[0] = maiorEspacoDecimal[0].slice(0, -(maiorEspacoDecimal[1] - menorEspacoDecimal[1]));
         } else {
             valor1[0] += "0".repeat(maiorEspacoDecimal[1] - menorEspacoDecimal[1]);
         }
     }
     resultado = (+valor1[0] - +valor2[0]) + resultado;
-    resultado = resultado.slice(0, -(maiorEspacoDecimal[1])) + "." + resultado.slice(-(maiorEspacoDecimal[1]));
+    if (valor1[1] !== 0 || valor2[1] !== 0) {
+        resultado = resultado.slice(0, -(maiorEspacoDecimal[1])) + "." + resultado.slice(-(maiorEspacoDecimal[1]));
+    }
     return resultado;
 }
 
+/* multiplicarFloats(valor1, valor2): faz a multiplicação entre dois floats tratados(ver tratarFloats()).
+                        Recebe: float tratado, float tratado.
+                        Retorna: a multiplicação precisa dos dois valores em uma string*/
 function multiplicarFloats(valor1, valor2) {
     let resultado = (+valor1[0] * +valor2[0]).toString();
-    resultado = resultado.slice(0, -(valor1[1] + valor2[1])) + "." + resultado.slice(-(valor1[1] + valor2[1]));
+    if (valor1[1] !== 0 || valor2[1] !== 0) {
+        resultado = resultado.slice(0, -(valor1[1] + valor2[1])) + "." + resultado.slice(-(valor1[1] + valor2[1]));
+    }
     return resultado;
 }
 
-function calcularComFloats(valor1, operador, valor2) {
+/*calcularFloats(valor1, operador, valor2): retorna resultado da operação requisitada com
+                        precisão.
+                        OBS: Apenas utilizar com números positivos na ordem maior para menor ao utilizar.
+                        Recebe: String de um float, String de um operador, String de um float.
+                        Retorna: resultado da operação requisitada com
+                        precisão em String*/
+function calcularFloats(valor1, operador, valor2) {
     const valor1tratado = tratarFloats(valor1);
     const valor2tratado = tratarFloats(valor2);
     switch (operador) {
@@ -50,8 +79,6 @@ function calcularComFloats(valor1, operador, valor2) {
             return subtrairFloats(valor1tratado, valor2tratado);
         case "*":
             return multiplicarFloats(valor1tratado, valor2tratado);
-        case "/":
-            return dividirFloats(valor1tratado, valor2tratado);
         default:
             return "0";
     }
@@ -75,25 +102,22 @@ function calculoDeTaxas(soma) {
     const lucroValor = +((soma + resultado) * (+document.querySelector("#taxa-lucro").textContent.slice(0, -1) / 100).toFixed(2)).toFixed(2);
     document.querySelector("#lucro-valor").value = "R$" + lucroValor;
     resultado += lucroValor;
-    console.log(lucroValor);
 
     const impostosValor = +((soma + resultado) * (+document.querySelector("#taxa-impostos").textContent.slice(0, -1) / 100).toFixed(2)).toFixed(2);
     document.querySelector("#impostos-valor").value = "R$" + impostosValor;
     resultado += impostosValor;
-    console.log(impostosValor);
 
     const descontoValor = +((soma + adminValor +  lucroValor) * (+document.querySelector("#taxa-desconto").textContent.slice(0, -1) / 100).toFixed(2) * -1).toFixed(2);
     document.querySelector("#desconto-valor").value = "- R$" + descontoValor * -1;
     resultado += descontoValor;
-    console.log(descontoValor);
 
     return resultado;
 }
 
 function mudarPrecoTotal() {
-    const valorItens = +document.querySelector("#valor-total-itens").value.replace("R$", "").replace(/(\.)\d{3}/, "").replace(",", ".");
-    const valorMO = +document.querySelector("#mo-total").value.replace("R$", "").replace(/(\.)\d{3}/, "").replace(",", ".");
-    const deslocamento = +document.querySelector("#deslocamento").value.replace("R$", "").replace(/(\.)\d{3}/, "").replace(",", ".");
+    const valorItens = +document.querySelector("#valor-total-itens").value.replace(/[R$]/g, "").replace(/(\.)\d{3}/, "").replace(",", ".");
+    const valorMO = +document.querySelector("#mo-total").value.replace(/[R$]/g, "").replace(/(\.)\d{3}/, "").replace(",", ".");
+    const deslocamento = +document.querySelector("#deslocamento").value.replace(/[R$]/g, "").replace(/(\.)\d{3}/, "").replace(",", ".");
     const taxas = calculoDeTaxas(valorItens + valorMO + deslocamento);
     document.querySelector("#valor-total").textContent = "R$" + (valorItens + valorMO + deslocamento + taxas).toFixed(2);
 }
@@ -101,7 +125,7 @@ function mudarPrecoTotal() {
 function mudarPrecoTotalItens() {
     const listaDePrecos = Array.from(document.querySelectorAll(".preco-final"));
     document.querySelector("#valor-total-itens").value = "R$" + listaDePrecos.reduce((total, item) => {
-        return (total + +item.value.replace("R$", "").replace(/(\.)\d{3}/, "").replace(",", "."));
+        return (total + +item.value.replace(/[R$]/g, "").replace(/(\.)\d{3}/, "").replace(",", "."));
     }, 0).toFixed(2);
     mudarPrecoTotal();
 }
@@ -159,7 +183,7 @@ function adicionarCampoDeItens(id) {
 
     inputQuant.addEventListener("input", () => {
         const quant = inputQuant.value === ""? 0 : +inputQuant.value;
-        const valorUnitarioStr = inputPrecoUnitario.value.replace("R$", "").replace(/(\.)\d{3}/, "").replace(",", ".");
+        const valorUnitarioStr = inputPrecoUnitario.value.replace(/[R$]/g, "").replace(/(\.)\d{3}/, "").replace(",", ".");
         const valorUnitarioNumero = valorUnitarioStr === ""? 0 : +valorUnitarioStr;
         inputPrecoFinal.value = "R$" + (quant * valorUnitarioNumero).toFixed(2); 
         mudarPrecoTotalItens();
@@ -167,7 +191,7 @@ function adicionarCampoDeItens(id) {
 
     inputPrecoUnitario.addEventListener("input", () => {
         const quant = inputQuant.value === ""? 0 : +inputQuant.value;
-        const valorUnitarioStr = inputPrecoUnitario.value.replace("R$", "").replace(/(\.)\d{3}/, "").replace(",", ".");
+        const valorUnitarioStr = inputPrecoUnitario.value.replace(/[R$]/g, "").replace(/(\.)\d{3}/, "").replace(",", ".");
         const valorUnitarioNumero = valorUnitarioStr === ""? 0 : +valorUnitarioStr;
         inputPrecoFinal.value = "R$" + (quant * valorUnitarioNumero).toFixed(2);
         inputPrecoUnitario.value = "R$" + valorUnitarioStr;
@@ -240,8 +264,8 @@ function adicionarCampoDeMO(id) {
     precoMO.style.display = "none";
     
     function mudarPrecoMO(pessoas, dias, precoDia, horas, precoHoras, precoMO) {
-        const precoDiaNum = +precoDia.value.replace("R$", "").replace(/(\.)\d{3}/, "").replace(",", ".");
-        const precoHorasNum = +precoHoras.value.replace("R$", "").replace(/(\.)\d{3}/, "").replace(",", ".");
+        const precoDiaNum = +precoDia.value.replace(/[R$]/g, "").replace(/(\.)\d{3}/, "").replace(",", ".");
+        const precoHorasNum = +precoHoras.value.replace(/[R$]/g, "").replace(/(\.)\d{3}/, "").replace(",", ".");
         precoMO.value = (+pessoas.value * ((dias.value * precoDiaNum) + (horas.value * precoHorasNum))).toFixed(2);
         mudarPrecoTotalMO();
     }
@@ -329,10 +353,12 @@ document.querySelector(".data-atual").value = `${date.getFullYear()}-${month}-${
 const distancia = document.querySelector("#distancia");
 const distanciaValor = document.querySelector("#distancia-valor");
 distancia.addEventListener("input", () => {
-    document.querySelector("#deslocamento").value = "R$" + (+distancia.value * +distanciaValor.value).toFixed(2);
+    distanciaValor.value = "R$" + distanciaValor.value.replace(/[R$]/g, "").replace(/(\.)\d{3}/, "").replace(",", ".");
+    document.querySelector("#deslocamento").value = "R$" + (+calcularFloats(distancia.value, "*", distanciaValor.value.replace(/[R$]/g, ""))).toFixed(2);
     mudarPrecoTotal();
 });
 distanciaValor.addEventListener("input", () => {
-    document.querySelector("#deslocamento").value = "R$" + (+distancia.value * +distanciaValor.value).toFixed(2);
+    distanciaValor.value = "R$" + distanciaValor.value.replace(/[R$]/g, "").replace(/(\.)\d{3}/, "").replace(",", ".");
+    document.querySelector("#deslocamento").value = "R$" + (+calcularFloats(distancia.value, "*", distanciaValor.value.replace(/[R$]/g, ""))).toFixed(2);
     mudarPrecoTotal();
 });
