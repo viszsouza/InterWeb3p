@@ -416,7 +416,7 @@ input:read-only {
 }
 
 .tabs-home .user {
-    margin: 0 0 10px 5px;
+    margin: 50px 0 10px 5px;
     display: flex;
     justify-content: center;
     align-items: center;
