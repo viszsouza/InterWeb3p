@@ -150,7 +150,7 @@ textarea {
     gap: 5px;
 }
 
-.linha-itens {
+.linha-itens, #linha-itens-nomes {
     grid-column: 1 / 3;
     display: grid;
     grid-template-columns: 1fr 1fr 6fr 1.5fr 1.5fr;
@@ -185,13 +185,18 @@ input:read-only {
     color: inherit;
 }
 
-.adicionar-campos {
+.controle-campos {
+    display: flex;
+    gap: 15px;
+}
+
+.adicionar-campos, .remover-campos {
     display: flex;
     align-items: center;
     gap: 5px;
 }
 
-.adicionar-campos > label {
+.adicionar-campos > label, .remover-campos > label {
     margin-top: 4px;
     cursor: pointer;
 }
@@ -202,7 +207,7 @@ input:read-only {
     gap: 5px;
 }
 
-.linha-mo {
+.linha-mo, #linha-mo-nomes {
     display: grid;
     grid-template-columns: 1.6fr repeat(5, 1.1fr);
     gap: 5px;

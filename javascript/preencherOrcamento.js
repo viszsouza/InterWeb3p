@@ -205,7 +205,7 @@ function adicionarCampoDeItens(id) {
     linha.appendChild(campoPrecoUnitario);
     campoPrecoFinal.appendChild(inputPrecoFinal);
     linha.appendChild(campoPrecoFinal);
-    document.querySelector(".itens").insertBefore(linha, document.querySelector(".itens .adicionar-campos"));
+    document.querySelector(".itens").insertBefore(linha, document.querySelector(".itens .controle-campos"));
 }
 
 function adicionarCampoDeMO(id) {
@@ -290,7 +290,7 @@ function adicionarCampoDeMO(id) {
     campoPrecoHoras.appendChild(inputPrecoHoras);
     linha.appendChild(campoPrecoHoras);
     linha.appendChild(precoMO);
-    document.querySelector(".mao-de-obra").insertBefore(linha, document.querySelector(".mao-de-obra .adicionar-campos"));
+    document.querySelector(".mao-de-obra").insertBefore(linha, document.querySelector(".mao-de-obra .controle-campos"));
 }
 
 function adicionarCampoDeProf(id) {
@@ -314,31 +314,55 @@ function adicionarCampoDeProf(id) {
     cftInput.type = "text";
     cftInput.name = `cft-crea${id}`;
     linha.appendChild(cftInput);
-    document.querySelector(".profissionais").insertBefore(linha, document.querySelector(".profissionais .adicionar-campos"));
+    document.querySelector(".profissionais").insertBefore(linha, document.querySelector(".profissionais .controle-campos"));
 }
 
-// Adicionar Campos em ítens
-adicionarCampoDeItens(document.querySelectorAll(".linha-itens").length);
-adicionarCampoDeItens(document.querySelectorAll(".linha-itens").length);
-adicionarCampoDeItens(document.querySelectorAll(".linha-itens").length);
-adicionarCampoDeItens(document.querySelectorAll(".linha-itens").length);
-const botaoAdicionarCampoItens = document.querySelector("#adicionar-campos-itens");
-botaoAdicionarCampoItens.addEventListener("click", () => {
-    adicionarCampoDeItens(document.querySelectorAll(".linha-itens").length);
+function removerCampos(nomeDoCampo) {
+    const listaDeLinhas = Array.from(document.querySelectorAll(nomeDoCampo));
+    if (listaDeLinhas.length > 0) {
+        const campo = listaDeLinhas.pop();
+        campo.remove();
+    }
+}
+
+// Adicionar Campos em itens
+adicionarCampoDeItens(document.querySelectorAll(".linha-itens").length + 1);
+adicionarCampoDeItens(document.querySelectorAll(".linha-itens").length + 1);
+adicionarCampoDeItens(document.querySelectorAll(".linha-itens").length + 1);
+adicionarCampoDeItens(document.querySelectorAll(".linha-itens").length + 1);
+document.querySelector("#adicionar-campos-itens").addEventListener("click", () => {
+    adicionarCampoDeItens(document.querySelectorAll(".linha-itens").length + 1);
+});
+
+// Remover Campos em itens
+document.querySelector("#remover-campos-itens").addEventListener("click", () => {
+    removerCampos(".linha-itens");
+    mudarPrecoTotalItens();
 });
 
 //Adicionar campos em mão de obra
-adicionarCampoDeMO(document.querySelectorAll(".linha-mo").length);
-adicionarCampoDeMO(document.querySelectorAll(".linha-mo").length);
+adicionarCampoDeMO(document.querySelectorAll(".linha-mo").length + 1);
+adicionarCampoDeMO(document.querySelectorAll(".linha-mo").length + 1);
 const botaoAdicionarCampoMO = document.querySelector("#adicionar-campos-mo");
 botaoAdicionarCampoMO.addEventListener("click", () => {
-    adicionarCampoDeMO(document.querySelectorAll(".linha-mo").length);
+    adicionarCampoDeMO(document.querySelectorAll(".linha-mo").length + 1);
+});
+
+// Remover Campos em mão de obra
+document.querySelector("#remover-campos-mo").addEventListener("click", () => {
+    removerCampos(".linha-mo");
+    mudarPrecoTotalMO();
 });
 
 //Adicionar campos em profissionais
 const botaoAdicionarCampoProf = document.querySelector("#adicionar-campos-prof");
 botaoAdicionarCampoProf.addEventListener("click", () => {
     adicionarCampoDeProf(document.querySelectorAll(".linha-prof").length + 1);
+});
+
+// Remover Campos em profissionais
+document.querySelector("#remover-campos-prof").addEventListener("click", () => {
+    removerCampos(".linha-prof");
 });
 
 //Data atual
