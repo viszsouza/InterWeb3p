@@ -39,7 +39,7 @@
 }
 
 
-#modal a#close-modal {
+#modal button#close-modal {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -59,7 +59,7 @@
     cursor: pointer;
 }
 
-#modal a#close-modal:hover {
+#modal button#close-modal:hover {
     background-color: rgb(249, 38, 38);
     color: white;
 }
@@ -79,7 +79,7 @@ div.alinhando-buttons{
     
 }
 
-button.confirmar-modal, a.fechar-modal {
+button.confirmar-modal, button.fechar-modal {
     width: 30%;
     font-size: 1.2em;
     padding: 10px;
@@ -102,7 +102,7 @@ button.confirmar-modal:hover{
     background-color: green;
 }
 
-a.fechar-modal{
+button.fechar-modal{
     text-decoration: none;
     color: black;
     padding: 5px;
