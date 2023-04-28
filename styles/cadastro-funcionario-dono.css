@@ -162,7 +162,7 @@ input {
     width: 100%;
 }
 
-.section-home .form-cadastro-funcionario .inputs-medio .input-medio button {
+.section-home .form-cadastro-funcionario .inputs-medio .input-medio a {
     width: 100%;
     border: none;
     height: 80%;
@@ -170,9 +170,11 @@ input {
     background-color: #46f41b;
     font-weight: bold;
     cursor: pointer;
+    text-align: center;
+    padding-top: 12px;
 }
 
-.section-home .form-cadastro-funcionario .inputs-medio .input-medio button:hover {
+.section-home .form-cadastro-funcionario .inputs-medio .input-medio a:hover {
     background-color: #6fff4a;
     transform: scale(1.05);
     transition: 0.4s;
