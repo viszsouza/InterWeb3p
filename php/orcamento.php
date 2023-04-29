@@ -37,55 +37,103 @@
 
 //Itens*
 
-    $valor_total_itens = $_POST["valor-total-itens"];
+    $contador = 1;
+    $valor_total_itens = 0;
+    while (isset($_POST["item" . $contador]) && isset($_POST["quant" . $contador]) && isset($_POST["material-servico" . $contador]) && isset($_POST["preco-unitario" . $contador])) {
+        if($_POST["material-servico" . id] === "") {
+            continue;
+        }
+        $item = $_POST["item" . $contador];
+        $quant = $_POST["quant" . $contador];
+        $material_servico = $_POST["material-servico" . $contador];
+        $preco_unitario = str_replace('R$', '', $_POST["preco-unitario" . $contador]);
+        $preco_final = intval($quant) * floatval($preco_unitario);
+        $valor_total_itens += $preco_final;
+        
+        $insere = "INSERT INTO servicos (item, quant, material_servico, preco_unitario, preco_final) VALUES ('$item', '$quant', '$material_servico', '$preco_unitario', '$preco_final')";
+
+        $inserir = "INSERT INTO calculo_orcamento (valor_total_itens) VALUES ('$valor_total_itens')"
+        
+        mysqli_query($conn, $insere, $inserir) or die("Não foi possível executar a inserção");
+
+        $contador++;
+    }
+
+//Mão de obra
+
+    $contador = 1;
+    $valor_total_MO = 0;
+    while (isset($_POST["profissional" . $contador]) && isset($_POST["pessoas" . $contador]) && isset($_POST["dias" . $contador]) && isset($_POST["preco-dia" . $contador]) && isset($_POST["horas" . $contador]) && isset($_POST["preco-horas" . $contador])) {
+        if ($_POST['profissional'] === "") {
+            continue;
+        }
+        $profissional = $_POST["profissional" . $contador];
+        $pessoas = $_POST["pessoas" . $contador];
+        $dias = $_POST["dias" . $contador];
+        $preco_dia = $_POST["preco-dia" . $contador];
+        $horas = $_POST["horas" . $contador];
+        $preco_horas = $_POST["preco-horas" . $contador];
+        $precoMO = intval($pessoas) * ((intval($dias) * floatval($preco_dia)) + (intval($horas) * floatval($preco_horas)));
+        $valor_total_MO += $precoMO;
+
+        $insere = "INSERT INTO mão_de_obra (profissional, pessoas, dias, preco-dias, horas, preco-horas) VALUES ('$profissional', '$pessoas', '$dias', '$preco_dia', '$horas', '$preco_horas')";
+
+        mysqli_query($conn, $insere) or die("Não foi possível executar a inserção");
+
+        $contador++;
+    }
 
 
-//Mão e Obra*
-
+//Deslocamento
+    $distancia = $_POST["distancia"];
+    $distancia_valor = $_POST["distancia-valor"];
+    $valor_total_deslocamento = floatval($distancia) * floatval($distancia_valor);
+    
 //Taxas
+    $soma_valores = $valor_total_deslocamento + $valor_total_itens + $valor_total_MO;
 
-    $mo_total = $_POST["mo-total"];
-    $deslocamento = $_POST["deslocamento"];
-    $seguro_garantia = $_POST["seguro-garantia"];
-    $seguro_civil = $_POST["seguro-civil"];
-    $admin_valor = $_POST["admin-valor"];
-    $lucro_valor = $_POST["lucro-valor"];
-    $impostos_valor = $_POST["impostos-valor"];
+    $taxas = mysqli_query($conn, "SELECT * FROM (valor das taxas em porcentagem) where id=(SELECT MAX(id) FROM taxa)");
+    
+    $seguro_garantia_taxa = intval(str_replace('%', '', $taxas["seguro_garantia"]));
+    $seguro_garantia = $soma_valores * $seguro_garantia_taxa / 100;
+
+    $seguro_civil_taxa = intval(str_replace('%', '', $taxas['seguro_civil']));
+    $seguro_civil = $soma_valores * $seguro_civil_taxa / 100;
+    
+    $admin_taxa = intval(str_replace('%', '', $taxas["admin"]));
+    $admin_valor = ($soma_valores + $seguro_garantia + $seguro_civil) * $admin_taxa / 100;
+
+    $lucro_taxa = intval(str_replace('%', '', $taxas["lucro"]));
+    $lucro_valor = ($soma_valores + $seguro_garantia + $seguro_civil + $admin_valor) * $lucro_taxa / 100;
+
+    $impostos_taxa = intval(str_replace('%', '', $taxas['impostos']));
+    $impostos_valor = ($soma_valores + $seguro_garantia + $seguro_civil + $admin_valor + $lucro_valor) * $impostos_taxa / 100;
+
     $taxa_desconto = $_POST["taxa-desconto"];
-    $desconto_valor + $_POST["desconto-valor"];
+    $desconto_valor = ($soma_valores + $admin_valor + $lucro_taxa) * $taxa_desconto / 100 * -1;
+
+    $valor_total = $soma_valores + $seguro_garantia + $seguro_civil + $lucro_valor + $impostos_valor + $desconto_valor;
 
 //Inserindo dados no Banco
 
-    if (isset($mo_total) && isset($deslocamento) && isset($seguro_garantia) && isset($seguro_civil) && isset($admin_valor) && isset($lucro_valor) && isset($impostos_valor) && isset($taxa_desconto) && isset($desconto_valor)) {
+    if (isset($seguro_garantia) && isset($seguro_civil) && isset($admin_valor) && isset($lucro_valor) && isset($impostos_valor) && isset($desconto_valor) && isset($valor_total)) {
 
-        $insere = "INSERT INTO taxa (mb_total, deslocamento, seguro_garantia, seguro_civil, admin_valor, lucro_valor, imposto_valor, taxa_desconto, desconto_valor) VALUES ('$mo_total', '$deslocamento', '$seguro_garantia', '$seguro_civil', '$admin_valor', '$luccro_valor', '$impostos_valor', '$taxa_desconto', '$desconto_valor')";
+    $insere = "INSERT INTO taxa (seguro_garantia, seguro_civil, admin_valor, lucro_valor, impostos_valor, desconto_valor, valor_total) VALUES ('$seguro_garantia', '$seguro_civil', '$admin_valor', '$lucro_valor', '$impostos_valor', '$desconto_valor', '$valor_total')";
 
-        mysqli_query($conn, $insere) or die("Não foi possível executar a inserção");
+    mysqli_query($conn, $insere) or die("Não foi possível executar a inserção"); 
+
     }
-
-
 //Nome dos Profissionais*
+    $contador = 1;
+    while(isset($_POST['nome-profissional' . $contador]) && isset($_POST['cft-crea' . $contador])) {
+        $profissional = $_POST['profissional' . $contador];
+        $cft_crea = $_POST['cft-crea' . $contador];
 
-    $nome_profissional1 = $_POST["nome-profissional1"];
-    $cft_crea1 = $_POST["cft-crea1"];
-    $nome_profissional2 = $_POST["nome-profissional2"];
-    $cft_crea2 = $_POST["cft-crea2"];
-
-
-//Inserindo dados no Banco*
-
-    if (isset($nome_profisional) && isset($cft_crea)) {
-
-        $insere = "INSERT INTO nome_dos_profissionais (nome_profissional, cft_crea) VALUES ('$nome_profisional', '$cft_crea')";
+        $insere = "INSERT INTO nome_profissionais (nome_profissional, cft_crea) VALUES ('$nome_profisional', '$cft_crea')";
 
         mysqli_query($conn, $insere) or die("Não foi possível executar a inserção");
     }
-    //Formas de Pagamento**
 
-    //Deslocamento
-
-    $distancia = $_POST["distancia"];
-    $distancia_valor = $_POST["distancia-valor"];
 
 //Inserindo dados no Banco
 
@@ -99,7 +147,7 @@
 //Observações**
 
     $observacao1 = $_POST["observacao1"];
-    $observacao2 = $_POST["observacao2"];
+    $observacao2 = $valor_total * 20 / 100;
     $observacao3 = $_POST["observacao3"];
 
 //inserindo dados no Banco
