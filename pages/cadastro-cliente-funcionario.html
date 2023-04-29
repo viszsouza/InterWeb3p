@@ -93,6 +93,18 @@
                 </div>
             </div>
 
+            <div class="campos-medios" style="margin-top: 10px;">
+                <div>
+                    <label for="SENHA">Senha</label>
+                    <input type="password" name="senha" id="SENHA" maxlength="14" pattern="([0-9]{2}[\.]?[0-9]{3}[\.]?[0-9]{3}[\/]?[0-9]{4}[-]?[0-9]{2})|([0-9]{3}[\.]?[0-9]{3}[\.]?[0-9]{3}[-]?[0-9]{2})
+                    ">
+                </div>
+                <div>
+                    <label for="CONFIRMAR-SENHA">Confirmar senha</label>
+                    <input type="password" name="confirmar-senha" id="CONFIRMAR-SENHA" pattern="^[0-9]{2}-([0-9]{8}|[0-9]{9})">
+                </div>
+            </div>
+
            <div class="botoes" > <!-- BOTOES CANCELAR E CONFIRMAR -->
                <button type="reset">Cancelar</button>
                <button type="button" id="open-modal">Confirmar</button>
