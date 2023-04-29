@@ -56,29 +56,28 @@
 
             <div class="input-grande" >
                <label for="NOME">Nome da empresa</label>
-               <input type="text" name="nome" id="NOME">
+               <input type="text" name="nome" id="NOME" placeholder="Digite o nome da empresa" required>
             </div>
 
             <div class="campos-medios">
                 <div>
                     <label for="CNPJ">CNPJ</label>
-                    <input type="number" name="cnpj" id="CNPJ" maxlength="14" pattern="([0-9]{2}[\.]?[0-9]{3}[\.]?[0-9]{3}[\/]?[0-9]{4}[-]?[0-9]{2})|([0-9]{3}[\.]?[0-9]{3}[\.]?[0-9]{3}[-]?[0-9]{2})
-                    ">
+                    <input type="number" name="cnpj" id="CNPJ" required pattern="/^[0-9]{2}[\.]?[0-9]{3}[\.]?[0-9]{3}[\/]?[0-9]{4}[-]?[0-9]{2}$/" placeholder="Ex: 81434946000168" title="Faça igual ao exemplo: 81434946000168"> <!--Ajeitar regex-->
                 </div>
                 <div>
                     <label for="CONTATO">Contato</label>
-                    <input type="tel" name="contato" id="CONTATO" pattern="^[0-9]{2}-([0-9]{8}|[0-9]{9})">
+                    <input type="tel" name="contato" id="CONTATO" required pattern="/^(\(?[0-9]{2}\)?)? ?([0-9]{4,5})-?([0-9]{4})$/" title="Faça igual ao exemplo: 8137420865 (fixo) 81980012855 (celular)" placeholder="Ex: 8137420865 (fixo) 81980012855 (celular)"> <!--Ajeitar regex-->
                 </div>
             </div>
 
             <div class="campos-medios">
                 <div>
                     <label for="ENDERECO">Endereço</label>
-                    <input type="text" name="endereco" id="ENDERECO">
+                    <input type="text" name="endereco" id="ENDERECO" placeholder="Ex: Rua da Aurora" required>
                 </div>
                 <div>
                     <label for="EMAIL">Email</label>
-                    <input type="email" name="email" id="EMAIL">
+                    <input type="email" name="email" id="EMAIL" placeholder="Digite o email" required>
                 </div>
             </div>
             
@@ -87,29 +86,28 @@
                 <div class="campos-pequenos">
                     <div class="input-pequeno">
                         <label for="BAIRRO">Bairro</label>
-                        <input type="text" name="bairro" id="BAIRRO">
+                        <input type="text" name="bairro" id="BAIRRO" placeholder="Digite o bairro" required>
                     </div>
                 
                     <div class="input-pequeno">
                         <label for="N-ENDERECO">Nº</label>
-                        <input type="text" name="n-endereco" id="N-ENDERECO">
+                        <input type="text" name="n-endereco" id="N-ENDERECO" required>
                     </div>
                 </div>
                 <div class="complemento">
                     <label for="COMPLEMENTO">Complemento</label>
-                    <input type="text" name="complemento" id="COMPLEMENTO">
+                    <input type="text" name="complemento" id="COMPLEMENTO" required>
                 </div>
             </div>
 
             <div class="campos-medios" style="margin-top: 10px;">
                 <div>
                     <label for="SENHA">Senha</label>
-                    <input type="password" name="senha" id="SENHA" maxlength="14" pattern="([0-9]{2}[\.]?[0-9]{3}[\.]?[0-9]{3}[\/]?[0-9]{4}[-]?[0-9]{2})|([0-9]{3}[\.]?[0-9]{3}[\.]?[0-9]{3}[-]?[0-9]{2})
-                    ">
+                    <input type="password" name="senha" id="SENHA" minlength="8" maxlength="16" placeholder="Digite a senha" required>
                 </div>
                 <div>
                     <label for="CONFIRMAR-SENHA">Confirmar senha</label>
-                    <input type="password" name="confirmar-senha" id="CONFIRMAR-SENHA" pattern="^[0-9]{2}-([0-9]{8}|[0-9]{9})">
+                    <input type="password" name="confirmar-senha" id="CONFIRMAR-SENHA" minlength="8" maxlength="16" placeholder="Confirme a senha" required>
                 </div>
             </div>
 

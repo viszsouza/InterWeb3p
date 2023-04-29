@@ -123,6 +123,10 @@ input {
     display: block;
 }
 
+.form-cadastro-funcionario input {
+    font-size: 1.1em;
+}
+
 .section-home .form-cadastro-funcionario .inputs-grande{
     margin-bottom: 12px;
 }

@@ -54,26 +54,26 @@
         <form class="form-cadastro-funcionario">
             <div class="inputs-grande">
                 <label for="NOME">Nome Completo</label>
-                <input type="text" name="NOME" id="NOME">
+                <input type="text" name="NOME" id="NOME" placeholder="Nome completo do funcionário" required>
             </div>
             <div class="inputs-grande">
                 <label for="EMAIL">Email</label>
-                <input type="email" name="EMAIL" id="EMAIL">
+                <input type="email" name="EMAIL" id="EMAIL" placeholder="Email do funcionário" required>
             </div>
             <div class="inputs-medio">
                 <div class="input-medio">
                     <label for="SENHA">Senha</label>
-                    <input  class="input-esquerdo" type="password" name="SENHA" id="SENHA">
+                    <input  class="input-esquerdo" type="password" name="SENHA" id="SENHA" placeholder="Digite a senha" minlength="8" maxlength="16" required>
                 </div>                
                 <div class="input-medio">
                     <label for="DATANASC">Data de Nascimento</label>
-                    <input class="input-direito" type="date" name="DATANASC" id="DATANASC">
+                    <input class="input-direito" type="date" name="DATANASC" id="DATANASC" required>
                 </div>
             </div>
             <div class="inputs-medio">
                 <div class="input-medio">
                     <label for="SENHACONFIRM">Confirmar Senha</label>
-                    <input  class="input-esquerdo" type="password" name="SENHACONFIRM" id="SENHACONFIRM">
+                    <input  class="input-esquerdo" type="password" name="SENHACONFIRM" id="SENHACONFIRM"  placeholder="Confirme a senha" minlength="8" maxlength="16" required>
                 </div>         
                 <div class="input-medio">
                     <button type="button" id="open-modal">CADASTRAR</button>

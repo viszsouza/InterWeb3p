@@ -151,8 +151,12 @@ input {
     border-radius: 10px;
     border: none;
     height: 38px;
-    font-size: 1em;
+    font-size: 1.1em;
     padding-left: 5px;
+}
+
+input#CONTATO::placeholder {
+    font-size: 0.89em;
 }
 
 div.input-grande label {
