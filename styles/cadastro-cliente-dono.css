@@ -237,11 +237,10 @@ button:nth-child(1):hover {
     background-color: rgba(255, 0, 0, 0.765);
     transform: scale(1.05);
     transition: 0.4s;
-    
 }
 
 button:nth-child(2) {
-    background-color: #46f41b;;
+    background-color: #46f41b;
 }
 
 button:nth-child(2):hover {

@@ -163,3 +163,18 @@ form {
     margin-right: 1em;
     font-weight: bold;
 }
+
+button#open-modal {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.05em;
+    cursor: pointer;
+    font-weight: bold;
+    background-color: #46f41b;
+    border-radius: 15px;
+}
+
+button#open-modal:hover {
+    background-color: #6fff4a;
+    transform: scale(1.05);
+    transition: 0.4s;
+}

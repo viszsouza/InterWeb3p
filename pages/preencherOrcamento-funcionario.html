@@ -5,8 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../styles/preencherOrcamento-funcionario.css">
+    <link rel="stylesheet" href="../styles/modal.css">
     <script src="https://kit.fontawesome.com/3bc1a873c3.js" crossorigin="anonymous"></script>
     <script src="../javascript/preencherOrcamento.js" defer></script>
+    <script src="../javascript/modal.js" defer></script>
     <title>Preencher Orçamento</title>
 </head>
 <body>
@@ -41,7 +43,7 @@
         </header>
         <section>
             <h1>Orçamento</h1>
-            <form action="#">
+            <form action="">
                 <div class="orcamento-meta">
                     <div class="campo">
                         <label for="data-atual">Data:</label>
@@ -318,7 +320,22 @@
                         <input type="text" id="cpf-cliente" name="cpf-cliente">
                     </div>
                 </div>
-                <button id="submit">Baixar Formulário</button>
+                <button class="submit" type="button" id="open-modal">Baixar Formulário</button>
+
+                <!--MODAL-->
+                <div id="fade" class="hide"></div>
+                <div id="modal" class="hide">
+                    <div class="modal-header">
+                        <button type="button" id="close-modal">X</button>
+                    </div>
+                    <div class="modal-body">
+                        <h2 class="texto">Você deseja confirmar o cadastro do orçamento?</h2>
+                        <div class="alinhando-buttons">
+                            <button class="confirmar-modal" type="submit">Confirmar</button>
+                            <button type="button" class="fechar-modal">Negar</button>
+                        </div>
+                    </div>
+                </div>
             </form>
         </section>
     </div>

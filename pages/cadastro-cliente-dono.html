@@ -5,7 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../styles/cadastro-cliente-dono.css">
+    <link rel="stylesheet" href="../styles/modal.css">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sua-integridade-aqui" crossorigin="anonymous"/>
+    <script src="../javascript/modal.js" defer></script>
     <title>Cadastrar cliente</title>
 </head>
 <body class="home-body">    
@@ -31,7 +33,7 @@
                 <li><i class="fas fa-file-invoice"></i> Tarifas</li>
             </a>
             <a href="preencherOrcamento-dono.html">
-                <li><i class="fas fa-list-alt"></i> Preencher orçamentos</li>
+                <li><i class="fas fa-list-alt"></i> Preencher orçamento</li>
             </a>
             <a href="lista-orcamento-dono.html">
                 <li><i class="fas fa-check-circle"></i> Lista de orçamentos</li>
@@ -101,10 +103,24 @@
 
            <div class="botoes" > <!-- BOTOES CANCELAR E CONFIRMAR -->
                <button type="reset">Cancelar</button>
-               <button type="submit">Confirmar</button>
+               <button type="button" id="open-modal">Confirmar</button>
+           </div>
+
+           <!--MODAL-->
+           <div id="fade" class="hide"></div>
+           <div id="modal" class="hide">
+               <div class="modal-header">
+                   <button type="button" id="close-modal">X</button>
+               </div>
+               <div class="modal-body">
+                   <h2 class="texto">Você deseja confirmar o cadastro do cliente?</h2>
+                   <div class="alinhando-buttons">
+                       <button class="confirmar-modal" type="submit">Confirmar</button>
+                       <button type="button" class="fechar-modal" >Negar</button>
+                   </div>
+               </div>
            </div>
         </form>
-        
     </section>
 
 </body>
