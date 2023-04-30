@@ -3,11 +3,11 @@
 
     //Cadastro Funcionario
 
-    $nome = $_POST["NOME"];
-    $email = $_POST["EMAIL"];
-    $senha = $_POST["SENHA"];
-    $senhaconfirm = $_POST["SENHACONFIRM"];
-    $dataa = $_POST["DATANASC"];
+    $nome = $_GET["NOME"];
+    $email = $_GET["EMAIL"];
+    $senha = $_GET["SENHA"];
+    $senhaconfirm = $_GET["SENHACONFIRM"];
+    $dataa = $_GET["DATANASC"];
 
 //Inserindo dados no Banco
 
