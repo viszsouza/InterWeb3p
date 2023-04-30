@@ -40,7 +40,7 @@
     $contador = 1;
     $valor_total_itens = 0;
     while (isset($_POST["item" . $contador]) && isset($_POST["quant" . $contador]) && isset($_POST["material-servico" . $contador]) && isset($_POST["preco-unitario" . $contador])) {
-        if($_POST["material-servico" . $contador] === "") {
+        if($_POST["material-servico" . $id] === "") {
             continue;
         }
         $item = $_POST["item" . $contador];
@@ -54,7 +54,7 @@
 
         $inserir = "INSERT INTO calculo_orcamento (valor_total_itens) VALUES ('$valor_total_itens')";
         
-        (mysqli_query($conn, $insere, $inserir) or die("Não foi possível executar a inserção"));
+        mysqli_query($conn, $insere, $inserir) or die("Não foi possível executar a inserção");
 
         $contador++;
     }
@@ -186,5 +186,5 @@
         mysqli_query($conn, $insere) or die("Não foi possível executar a inserção");
     };
 
-    header('Location: preencherOrcamento-dono.php');
+    header('Location: ../pages/preencherOrcamento-dono.php');
 ?>
