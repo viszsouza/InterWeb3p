@@ -51,7 +51,7 @@
     <section class="section-home">
         <h1>Cadastrar Funcionário</h1>
 
-        <form action="../php/cadastro-funcionario.php" class="form-cadastro-funcionario" method="get">
+        <form action="../php/cadastro-funcionario.php" class="form-cadastro-funcionario" method="post">
             <div class="inputs-grande">
                 <label for="NOME">Nome Completo</label>
                 <input type="text" name="NOME" id="NOME" placeholder="Nome completo do funcionário" required>
