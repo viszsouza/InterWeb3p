@@ -18,5 +18,5 @@
         mysqli_query($conn, $insere) or die("Não foi possível executar a inserção");
     }
 
-    header('Location: ../pages/cadastro-funcionario-dono.html');
+    header('Location: ../pages/cadastro-funcionario-dono.php');
 ?>
