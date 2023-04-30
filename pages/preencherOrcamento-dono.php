@@ -326,7 +326,7 @@
                         <input type="text" id="cpf-cliente" name="cpf-cliente">
                     </div>
                 </div>
-                <button class="submit" type="button" id="open-modal">Baixar Formulário</button>
+                <button class="submit" type="button" id="open-modal">Enviar Formulário</button>
 
                 <!--MODAL-->
                 <div id="fade" class="hide"></div>

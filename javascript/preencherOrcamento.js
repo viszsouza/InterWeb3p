@@ -119,6 +119,7 @@ function mudarPrecoTotal() {
     const deslocamento = document.querySelector("#deslocamento").value.replace(/[R$]/g, "").replace(/(\.)\d{3}/, "").replace(",", ".");
     calculoDeTaxas(calcularFloats(valorItens, "+", calcularFloats(valorMO, "+", deslocamento)));
     document.querySelector("#observacao2").value = "R$" + (+calcularFloats(document.querySelector("#valor-total").textContent.replace(/[R$]/g, ""), "*", "0.20")).toFixed(2);
+    document.querySelector("#observacao3").value = "R$" + (+calcularFloats(document.querySelector("#valor-total").textContent.replace(/[R$]/g, ""), "*", "0.30")).toFixed(2);
 }
 
 function mudarPrecoTotalItens() {
