@@ -13,10 +13,10 @@
 
     if (isset($nome) && isset($email) && isset($senha) && isset($senhaconfirm) && isset($dataa)) {
 
-        $insere = "INSERT INTO cadastro_f (nome, email, senha, senhaconfirm, dataa) VALUES ('$nome', '$email', '$senha', '$senhaconfirm', '$dataa')";
+        $insere = "INSERT INTO cadastro_f (nome, email, senha, senha_confirm, dataa) VALUES ('$nome', '$email', '$senha', '$senhaconfirm', '$dataa')";
 
         mysqli_query($conn, $insere) or die("Não foi possível executar a inserção");
     }
 
-    header('Location: cadastro-funcionario-dono.php');
+    header('Location: ../pages/cadastro-funcionario-dono.php');
 ?>
