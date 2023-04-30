@@ -49,7 +49,7 @@
         </header>
         <section>
             <h1>Orçamento</h1>
-            <form action="" method="post">
+            <form action="../php/orcamento-dono.php" method="post">
                 <div class="orcamento-meta">
                     <div class="campo">
                         <label for="data-atual">Data:</label>
