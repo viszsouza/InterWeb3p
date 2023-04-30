@@ -40,7 +40,7 @@
     $contador = 1;
     $valor_total_itens = 0;
     while (isset($_POST["item" . $contador]) && isset($_POST["quant" . $contador]) && isset($_POST["material-servico" . $contador]) && isset($_POST["preco-unitario" . $contador])) {
-        if($_POST["material-servico" . $id] === "") {
+        if($_POST["material-servico" . $contador] === "") {
             continue;
         }
         $item = $_POST["item" . $contador];
