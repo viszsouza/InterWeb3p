@@ -1,7 +1,7 @@
 <?php
-$servername = "localhost";
+$servername = "containers-us-west-63.railway.app";
 $username = "root";
-$password = "";
+$password = "69RwM2UVzHxTh0wsrad5";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password);
@@ -11,12 +11,12 @@ if ($conn->connect_error) {
 }
 
 // Create database
-$sql = "CREATE DATABASE inter_teste";
-if ($conn->query($sql) === TRUE) {
-  echo "Database created successfully";
-} else {
-  echo "Error creating database: " . $conn->error;
-}
+// $sql = "CREATE DATABASE inter_teste";
+// if ($conn->query($sql) === TRUE) {
+//   echo "Database created successfully";
+// } else {
+//   echo "Error creating database: " . $conn->error;
+// }
 
-$conn->close();
+// $conn->close();
 ?>
