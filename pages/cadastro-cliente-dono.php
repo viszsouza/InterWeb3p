@@ -52,7 +52,7 @@
     <section class="section-home" > <!-- CONTEUDO PRINCIPAL -->
         <h1>Cadastrar Cliente</h1>
         
-        <form action="" method="post"> <!-- INPUTS - FORMULÁRIO -->
+        <form action="../php/cadastro-cliente-dono.php" method="post"> <!-- INPUTS - FORMULÁRIO -->
 
             <div class="input-grande" >
                <label for="NOME">Nome da empresa</label>
@@ -62,11 +62,11 @@
             <div class="campos-medios">
                 <div>
                     <label for="CNPJ">CNPJ</label>
-                    <input type="number" name="cnpj" id="CNPJ" required pattern="/^[0-9]{2}[\.]?[0-9]{3}[\.]?[0-9]{3}[\/]?[0-9]{4}[-]?[0-9]{2}$/" placeholder="Ex: 81434946000168" title="Faça igual ao exemplo: 81434946000168"> <!--Ajeitar regex-->
+                    <input type="text" name="cnpj" id="CNPJ" required title="Faça igual ao exemplo: 81434946000168" placeholder="Ex: 81434946000168" minlength="14" maxlength="14" pattern="([0-9]{2}[\.]?[0-9]{3}[\.]?[0-9]{3}[\/]?[0-9]{4}[-]?[0-9]{2})|([0-9]{3}[\.]?[0-9]{3}[\.]?[0-9]{3}[-]?[0-9]{2})"> <!-- Regex ok --> 
                 </div>
                 <div>
                     <label for="CONTATO">Contato</label>
-                    <input type="tel" name="contato" id="CONTATO" required pattern="/^(\(?[0-9]{2}\)?)? ?([0-9]{4,5})-?([0-9]{4})$/" title="Faça igual ao exemplo: 8137420865 (fixo) 81980012855 (celular)" placeholder="Ex: 8137420865 (fixo) 81980012855 (celular)"> <!--Ajeitar regex-->
+                    <input type="tel" name="contato" id="CONTATO" required title="Faça igual ao exemplo: 8137420865 (fixo) 81980012855 (celular)" placeholder="Ex: 8137420865 (fixo) 81980012855 (celular)" minlength="10" maxlength="11" pattern="(\([0-9]{2}\)\s?[0-9]{4,5}-?[0-9]{3,4})|([0-9]{10,11})|([0-9]{2}\s?[0-9]{8,9})"> <!--Regex ok-->
                 </div>
             </div>
 
