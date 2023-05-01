@@ -1,8 +1,11 @@
 <?php
     include('../php/conn.php');
 
-    $sql_code = "SELECT * FROM orcamento";
-    $sql_query = $conn->query($sql_code) or die ("Erro ao consultar!");
+    $sql_code_servicos = "SELECT tipo_servico FROM servicos";
+    $sql_query_servicos = $conn->query($sql_code_servicos) or die ("Erro ao consultar!");
+
+    $sql_code_orcamento = "SELECT id_orcamento_final FROM ver_orcamento_final";
+    $sql_query_orcamento = $conn->query($sql_code_orcamento) or die ("Erro ao consultar!");
 ?>
 
 <!DOCTYPE html>
@@ -103,7 +106,7 @@
 
         <h1>
         <?php 
-            if ($sql_query->num_rows == 0) {
+            if (($sql_query_servicos->num_rows == 0) || ($sql_query_orcamento->num_rows == 0)) {
                 echo ("Não há nenhum orçamento no banco de dados...");
         ?>
         </h1>
@@ -111,16 +114,16 @@
         <?php
             }
             else {
-                while ($dados = $sql_query->fetch_assoc()) {
+                while (($dados_servicos = $sql_query_servicos->fetch_assoc()) && ($dados_orcamento = $sql_query_orcamento->fetch_assoc())) {
                     echo '
                     <div class="container">
                         <div class="campos campo1">
                             <label>Id</label>
-                            <input type="number" name="id" value="'. $dados['id'] .'" readonly>
+                            <input type="number" name="id" value="'. $dados_orcamento['id'] .'" readonly>
                         </div>
                         <div class="campos campo2">
                             <label>Tipo do serviço</label>
-                            <input type="text" name="tipo_servico" value="' . $dados['tipo_servico'] . '" readonly>
+                            <input type="text" name="tipo_servico" value="' . $dados_servicos['tipo_servico'] . '" readonly>
                         </div>
                     </div>';
                 }
