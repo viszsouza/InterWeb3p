@@ -20,23 +20,23 @@
                     <div class="fundo-logo"></div>
                 </div>
                 <ul>
-                    <a href="home-dono.html">
+                    <a href="home-dono.php">
                         <li><i class="fas fa-home"></i> Home</li>
                     </a>
-                    <a href="cadastro-funcionario-dono.html">
+                    <a href="cadastro-funcionario-dono.php">
                         <li><i class="fas fa-user-plus"></i> Cadastrar funcionário</li>
                     </a>
-                    <a href="cadastro-cliente-dono.html">
+                    <a href="cadastro-cliente-dono.php">
                         <li><i class="fas fa-user-plus"></i> Cadastrar cliente</li>
                     </a>
-                    <a href="tarifas-dono.html">
+                    <a href="tarifas-dono.php">
                         <li><i class="fas fa-file-invoice"></i> Tarifas</li>
                     </a>
                     <div class="atual"></div>
-                    <a href="preencherOrcamento-dono.html">
+                    <a href="preencherOrcamento-dono.php">
                         <li><i class="fas fa-list-alt"></i> Preencher orçamento</li>
                     </a>
-                    <a href="lista-orcamento-dono.html">
+                    <a href="lista-orcamento-dono.php">
                         <li><i class="fas fa-check-circle"></i> Lista de orçamentos</li>
                     </a>
                 </ul>
@@ -338,7 +338,7 @@
                         <h2 class="texto">Você deseja confirmar o cadastro do orçamento?</h2>
                         <div class="alinhando-buttons">
                             <button class="confirmar-modal" type="submit">Confirmar</button>
-                            <button type="button" class="fechar-modal" >Negar</button>
+                            <button type="button" class="fechar-modal">Negar</button>
                         </div>
                     </div>
                 </div>

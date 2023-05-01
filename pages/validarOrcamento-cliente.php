@@ -16,14 +16,14 @@
         </div>
 
         <ul class="navbar">
-            <a href="home-cliente.html"> 
+            <a href="home-cliente.php"> 
                 <li><i class="fas fa-home"></i> Home</li>
             </a>
-            <a href="visualizarOrcamento-cliente.html">
+            <a href="visualizarOrcamento-cliente.php">
                 <li><i class="fa-solid fa-file-contract"></i> Visualizar Orçamento</li>
             </a>
             <div class="atual"></div>
-            <a href="validarOrcamento-cliente.html">
+            <a href="validarOrcamento-cliente.php">
                 <li><i class="fa-solid fa-circle-check"></i> Validar Orçamento</li>
             </a>
         </ul>

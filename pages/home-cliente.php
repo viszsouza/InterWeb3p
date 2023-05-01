@@ -17,13 +17,13 @@
 
         <ul class="navbar">
             <div class="atual"></div>
-            <a href="home-cliente.html">
+            <a href="home-cliente.php">
                 <li><i class="fas fa-home"></i> Home</li>
             </a>
-            <a href="visualizarOrcamento-cliente.html">
+            <a href="visualizarOrcamento-cliente.php">
                 <li><i class="fa-solid fa-file-contract"></i> Visualizar orçamento</li>
             </a>
-            <a href="validarOrcamento-cliente.html">
+            <a href="validarOrcamento-cliente.php">
                 <li><i class="fa-solid fa-circle-check"></i> Validar orçamento</li>
             </a>
         </ul>

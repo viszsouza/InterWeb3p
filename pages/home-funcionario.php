@@ -20,13 +20,13 @@
             <a href="#">
                 <li><i class="fas fa-home"></i> Home</li>
             </a>
-            <a href="cadastro-cliente-funcionario.html">
+            <a href="cadastro-cliente-funcionario.php">
                 <li><i class="fas fa-user-plus"></i> Cadastrar Cliente</li>
             </a>
-            <a href="preencherOrcamento-funcionario.html">
+            <a href="preencherOrcamento-funcionario.php">
                 <li><i class="fa-solid fa-file-signature"></i> Preencher Orçamento</li>
             </a>
-            <a href="lista-orcamento-funcionario.html">
+            <a href="lista-orcamento-funcionario.php">
                 <li><i class="fas fa-list"></i> Lista de orçamentos</li>
             </a>
         </ul>
