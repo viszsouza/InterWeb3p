@@ -40,7 +40,7 @@
     $contador = 1;
     $valor_total_itens = 0;
     while (isset($_POST["item" . $contador]) && isset($_POST["quant" . $contador]) && isset($_POST["material-servico" . $contador]) && isset($_POST["preco-unitario" . $contador])) {
-        if($_POST["material-servico" . $id] === "") {
+        if($_POST["material-servico" . $contador] === "") {
             continue;
         }
         $item = $_POST["item" . $contador];
@@ -52,12 +52,17 @@
         
         $insere = "INSERT INTO servicos (item, quant, material_servico, preco_unitario, preco_final) VALUES ('$item', '$quant', '$material_servico', '$preco_unitario', '$preco_final')";
 
-        $inserir = "INSERT INTO calculo_orcamento (valor_total_itens) VALUES ('$valor_total_itens')";
+        // $inserir = "INSERT INTO calculo_orcamento (valor_total_itens) VALUES ('$valor_total_itens')";
         
-        mysqli_query($conn, $insere, $inserir) or die("Não foi possível executar a inserção");
+        mysqli_query($conn, $insere) or die("Não foi possível executar a inserção");
+        // mysqli_query($conn, $inserir) or die("Não foi possível executar a inserção");
 
         $contador++;
     }
+
+    // colocando o valor_total_itens para fora do while para não repetir muitas vezes - Cristiano
+    $inserir = "INSERT INTO calculo_orcamento (valor_total_itens) VALUES ('$valor_total_itens')";
+    mysqli_query($conn, $inserir) or die("Não foi possível executar a inserção");
 
 //Mão de obra
 
