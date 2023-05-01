@@ -50,7 +50,7 @@
         $preco_final = intval($quant) * floatval($preco_unitario);
         $valor_total_itens += $preco_final;
         
-        $insere = "INSERT INTO servicos (item, quant, material_servico, preco_unitario, preco_final) VALUES ('$item', '$quant', '$material_servico', '$preco_unitario', '$preco_final')";
+        $insere = "INSERT INTO servicos (itens, quant, material_servico, preco_unitario, preco_final) VALUES ('$item', '$quant', '$material_servico', '$preco_unitario', '$preco_final')";
 
         // $inserir = "INSERT INTO calculo_orcamento (valor_total_itens) VALUES ('$valor_total_itens')";
         
