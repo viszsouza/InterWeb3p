@@ -153,7 +153,7 @@
 
     $observacao1 = $_POST["observacao1"];
     $observacao2 = $valor_total * 20 / 100;
-    $observacao3 = $_POST["observacao3"];
+    $observacao3 = $valor_total * 30 / 100;
 
 //inserindo dados no Banco
 
